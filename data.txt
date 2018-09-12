@@ -1,0 +1,6016 @@
+{{TOC|right}}
+{{exclusive|bedrock}}
+
+=Version: 1.2.0.22=
+This is documentation for a beta release of Minecraft. New component names and parameters, and parameter changes for old components in this release are not final and might change before the final release. Make sure to check the documentation once the release is out of beta if your add-on isn't working properly.
+
+== Entity Definition Properties ==
+
+=== do_not_upgrade ===
+
+;Description
+
+: Disables all current and future backwards compatibility for this entity. If new components or properties are added or changed to the vanilla version of this entity, they will not be applied.
+
+=== format_version ===
+
+;Description
+
+: Specifies the version of the game this entity was made in. If the version is lower than the current version, any changes made to the entity in the vanilla version will be applied to it.
+
+== Attributes ==
+
+=== ''minecraft:''attack ===
+
+;Description
+
+: Defines an entity's melee attack and any additional effects on it.
+
+;Parameters
+
+: {| class="wikitable"
+! Type !! Name !! Default Value !! Description
+|-
+| Range [a, b]
+| damage
+|
+| Range of the random amount of damage the melee attack deals
+|-
+| Decimal
+| effect_duration
+| 0.0
+| Duration in seconds of the status ailment applied to the damaged entity
+|-
+| String
+| effect_name
+|
+| Name of the status ailment to apply to an entity attacked by this entity's melee attack
+|}
+=== ''minecraft:''spell_effects ===
+
+;Description
+
+: Defines what mob effects to add and remove to the entity when adding this component.
+
+;Parameters
+
+: {| class="wikitable"
+! Type !! Name !! Default Value !! Description
+|-
+| List
+| add_effects
+|
+| List of effects to add to this entity after adding this component
+;Parameters
+
+: {| class="wikitable"
+! Type !! Name !! Default Value !! Description
+|-
+| String
+| effect
+|
+| Effect to add to this entity. Includes 'duration' in seconds, 'amplifier' level, 'ambient' if it is to be considered an ambient effect, and 'visible' if the effect should be visible
+|}
+|-
+| String
+| remove_effects
+|
+| List of names of effects to be removed from this entity after adding this component
+|}
+=== ''minecraft:''strength ===
+
+;Description
+
+: Defines the entity's strength to carry items.
+
+;Parameters
+
+: {| class="wikitable"
+! Type !! Name !! Default Value !! Description
+|-
+| Integer
+| max
+| 5
+| The maximum strength of this entity
+|-
+| Integer
+| value
+| 1
+| The initial value of the strength
+|}
+
+
+== Properties ==
+
+=== ''minecraft:''ambient_sound_interval ===
+
+;Description
+
+: Sets the entity's delay between playing its ambient sound.
+
+;Parameters
+
+: {| class="wikitable"
+! Type !! Name !! Default Value !! Description
+|-
+| Decimal
+| range
+| 16.0
+| Maximum time is seconds to randomly add to the ambient sound delay time.
+|-
+| Decimal
+| value
+| 8.0
+| Minimum time in seconds before the entity plays its ambient sound again
+|}
+=== ''minecraft:''burns_in_daylight ===
+
+;Description
+
+: Sets that this entity burns if exposed to daylight.
+
+=== ''minecraft:''can_climb ===
+
+;Description
+
+: Allows this entity to climb up ladders.
+
+=== ''minecraft:''can_fly ===
+
+;Description
+
+: Marks the entity as being able to fly, the pathfinder won't be restricted to paths where a solid block is required underneath it.
+
+=== ''minecraft:''can_power_jump ===
+
+;Description
+
+: Allows the entity to power jump like the horse does in vanilla.
+
+=== ''minecraft:''collision_box ===
+
+;Description
+
+: Sets the width and height of the Entity's collision box.
+
+;Parameters
+
+: {| class="wikitable"
+! Type !! Name !! Default Value !! Description
+|-
+| Decimal
+| height
+| 1.0
+| Height of the Collision Box in Blocks
+|-
+| Decimal
+| width
+| 1.0
+| Width and Depth of the Collision Box in Blocks
+|}
+=== ''minecraft:''color ===
+
+;Description
+
+: Defines the entity's color. Only works on vanilla entities that have predefined color values (sheep, llama, shulker).
+
+;Parameters
+
+: {| class="wikitable"
+! Type !! Name !! Default Value !! Description
+|-
+| Integer
+| value
+| 0
+| The Palette Color value of the entity
+|}
+=== ''minecraft:''default_look_angle ===
+
+;Description
+
+: Sets this entity's default head rotation angle.
+
+;Parameters
+
+: {| class="wikitable"
+! Type !! Name !! Default Value !! Description
+|-
+| Decimal
+| value
+| 0.0f
+| Angle in degrees
+|}
+=== ''minecraft:''equipment ===
+
+;Description
+
+: Sets the Equipment table to use for this Entity.
+
+;Parameters
+
+: {| class="wikitable"
+! Type !! Name !! Default Value !! Description
+|-
+| String
+| table
+|
+| The path to the equipment table, relative to the Behavior Pack's root
+|}
+=== ''minecraft:''fire_immune ===
+
+;Description
+
+: Sets that this entity doesn't take damage from fire.
+
+=== ''minecraft:''floats_in_liquid ===
+
+;Description
+
+: Sets that this entity can float in liquid blocks.
+
+=== ''minecraft:''flying_speed ===
+
+;Description
+
+: Speed in Blocks that this entity flies at.
+
+;Parameters
+
+: {| class="wikitable"
+! Type !! Name !! Default Value !! Description
+|-
+| Decimal
+| value
+| 0.02
+| Flying speed in blocks per tick
+|}
+=== ''minecraft:''foot_size ===
+
+;Description
+
+: Sets the number of blocks the entity can step without jumping.
+
+;Parameters
+
+: {| class="wikitable"
+! Type !! Name !! Default Value !! Description
+|-
+| Decimal
+| value
+| 0.5
+| The value of the size of the entity's step
+|}
+=== ''minecraft:''friction_modifier ===
+
+;Description
+
+: Defines how much does friction affect this entity.
+
+;Parameters
+
+: {| class="wikitable"
+! Type !! Name !! Default Value !! Description
+|-
+| Decimal
+| value
+| 1.0
+| The higher the number, the more the friction affects this entity. A value of 1.0 means regular friction, while 2.0 means twice as much
+|}
+=== ''minecraft:''ground_offset ===
+
+;Description
+
+: Sets the offset from the ground that the entity is actually at.
+
+;Parameters
+
+: {| class="wikitable"
+! Type !! Name !! Default Value !! Description
+|-
+| Decimal
+| value
+| 0.0
+| The value of the entity's offset from the terrain, in blocks
+|}
+=== ''minecraft:''hurt_when_wet ===
+
+;Description
+
+: Sets that this entity will take damage when it is wet.
+
+=== ''minecraft:''input_ground_controlled ===
+
+;Description
+
+: When configured as a rideable entity, the entity will be controlled using WASD controls.
+
+=== ''minecraft:''is_baby ===
+
+;Description
+
+: Sets that this entity is a baby.
+
+=== ''minecraft:''is_charged ===
+
+;Description
+
+: Sets that this entity is charged.
+
+=== ''minecraft:''is_chested ===
+
+;Description
+
+: Sets that this entity is currently carrying a chest.
+
+=== ''minecraft:''is_dyeable ===
+
+;Description
+
+: Allows dyes to be used on this entity to change its color.
+
+;Parameters
+
+: {| class="wikitable"
+! Type !! Name !! Default Value !! Description
+|-
+| String
+| interact_text
+|
+| The text that will display when interacting with this entity with a dye when playing with Touch-screen controls
+|}
+=== ''minecraft:''is_ignited ===
+
+;Description
+
+: Sets that this entity is currently on fire.
+
+=== ''minecraft:''is_saddled ===
+
+;Description
+
+: Sets that this entity is currently saddled.
+
+=== ''minecraft:''is_shaking ===
+
+;Description
+
+: Sets that this entity is currently shaking.
+
+=== ''minecraft:''is_sheared ===
+
+;Description
+
+: Sets that this entity is currently sheared.
+
+=== ''minecraft:''is_stackable ===
+
+;Description
+
+: Sets that this entity can be stacked.
+
+=== ''minecraft:''is_tamed ===
+
+;Description
+
+: Sets that this entity is currently tamed.
+
+=== ''minecraft:''item_controllable ===
+
+;Description
+
+: Defines what items can be used to control this entity while ridden
+
+;Parameters
+
+: {| class="wikitable"
+! Type !! Name !! Default Value !! Description
+|-
+| List
+| control_items
+|
+| List of items that can be used to control this entity
+|}
+=== ''minecraft:''loot ===
+
+;Description
+
+: Sets the loot table for what items this entity drops upon death.
+
+;Parameters
+
+: {| class="wikitable"
+! Type !! Name !! Default Value !! Description
+|-
+| String
+| table
+|
+| The path to the loot table, relative to the Behavior Pack's root
+|}
+=== ''minecraft:''mark_variant ===
+
+;Description
+
+: Additional variant value. Can be used to further differentiate variants.
+
+;Parameters
+
+: {| class="wikitable"
+! Type !! Name !! Default Value !! Description
+|-
+| Integer
+| value
+| 0
+| The ID of the variant. By convention, 0 is the ID of the base entity
+|}
+=== ''minecraft:''push_through ===
+
+;Description
+
+: Sets the distance through which the entity can push through.
+
+;Parameters
+
+: {| class="wikitable"
+! Type !! Name !! Default Value !! Description
+|-
+| Decimal
+| value
+| 0.0
+| The value of the entity's push-through, in blocks
+|}
+=== ''minecraft:''scale ===
+
+;Description
+
+: Sets the entity's visual size.
+
+;Parameters
+
+: {| class="wikitable"
+! Type !! Name !! Default Value !! Description
+|-
+| Decimal
+| value
+| 1.0
+| The value of the scale. 1.0 means the entity will appear at the scale they are defined in their model. Higher numbers make the entity bigger
+|}
+=== ''minecraft:''sound_volume ===
+
+;Description
+
+: Sets the entity's base volume for sound effects.
+
+;Parameters
+
+: {| class="wikitable"
+! Type !! Name !! Default Value !! Description
+|-
+| Decimal
+| value
+| 1.0
+| The value of the volume the entity uses for sound effects
+|}
+=== ''minecraft:''type_family ===
+
+;Description
+
+: Defines the families this entity belongs to.
+
+;Parameters
+
+: {| class="wikitable"
+! Type !! Name !! Default Value !! Description
+|-
+| List
+| family
+|
+| List of family names
+|}
+=== ''minecraft:''variant ===
+
+;Description
+
+: Used to differentiate the component group of a variant of an entity from others (e.g. ocelot, villager)
+
+;Parameters
+
+: {| class="wikitable"
+! Type !! Name !! Default Value !! Description
+|-
+| Integer
+| value
+| 0
+| The ID of the variant. By convention, 0 is the ID of the base entity
+|}
+=== ''minecraft:''walk_animation_speed ===
+
+;Description
+
+: Sets the speed multiplier for this entity's walk animation speed.
+
+;Parameters
+
+: {| class="wikitable"
+! Type !! Name !! Default Value !! Description
+|-
+| Decimal
+| value
+| 1.0
+| The higher the number, the faster the animation for walking plays. A value of 1.0 means normal speed, while 2.0 means twice as fast
+|}
+=== ''minecraft:''wants_jockey ===
+
+;Description
+
+: Sets that this entity wants to become a jockey.
+
+=== ''minecraft:''addrider ===
+
+;Description
+
+: Adds a rider to the entity. Requires ''minecraft:''rideable.
+
+;Parameters
+
+: {| class="wikitable"
+! Type !! Name !! Default Value !! Description
+|-
+| String
+| entity_type
+|
+| The entity type that will be riding this entity
+|}
+=== ''minecraft:''ageable ===
+
+;Description
+
+: Adds a timer for the entity to grow up. It can be accelerated by giving the entity the items it likes as defined by feedItems.
+
+;Parameters
+
+: {| class="wikitable"
+! Type !! Name !! Default Value !! Description
+|-
+| Decimal
+| duration
+| 1200.0
+| Amount of time before the entity grows
+|-
+| List
+| feedItems
+|
+| List of items that can be fed to the entity. Includes 'item' for the item name and 'growth' to define how much time it grows up by
+|-
+| String
+| grow_up
+|
+| Event to run when this entity grows up
+|}
+=== ''minecraft:''angry ===
+
+;Description
+
+: Defines the entity's 'angry' state using a timer.
+
+;Parameters
+
+: {| class="wikitable"
+! Type !! Name !! Default Value !! Description
+|-
+| Boolean
+| broadcastAnger
+| false
+| If true, other entities of the same entity definition within the broadcastRange will also become angry
+|-
+| Integer
+| broadcastRange
+| 20
+| Distance in blocks within which other entities of the same entity definition will become angry
+|-
+| String
+| calm_event
+|
+| Event to run after the number of seconds specified in duration expires (when the entity stops being 'angry')
+|-
+| Integer
+| duration
+| 25
+| The amount of time in seconds that the entity will be angry
+|}
+=== ''minecraft:''boostable ===
+
+;Description
+
+: Defines the conditions and behavior of a rideable entity's boost
+
+;Parameters
+
+: {| class="wikitable"
+! Type !! Name !! Default Value !! Description
+|-
+| List
+| boost_items
+|
+| List of items that can be used to boost while riding this entity. Each item has the following properties:
+;Parameters
+
+: {| class="wikitable"
+! Type !! Name !! Default Value !! Description
+|-
+| Integer
+| damage
+| 1
+| This is the damage that the item will take each time it is used
+|-
+| String
+| item
+|
+| Name of the item that can be used to boost
+|-
+| String
+| replaceItem
+|
+| The item used to boost will become this item once it is used up
+|}
+|-
+| Integer
+| duration
+| 3
+| Time in seconds for the boost
+|-
+| Decimal
+| speed_multiplier
+| 1.0
+| Factor by which the entity's normal speed increases. E.g. 2.0 means go twice as fast
+|}
+=== ''minecraft:''breathable ===
+
+;Description
+
+: Defines what blocks this entity can breathe in and gives them the ability to suffocate
+
+;Parameters
+
+: {| class="wikitable"
+! Type !! Name !! Default Value !! Description
+|-
+| List
+| breatheBlocks
+|
+| List of blocks this entity can breathe in, in addition to the above
+|-
+| Boolean
+| breathesAir
+| true
+| If true, this entity can breathe in air
+|-
+| Boolean
+| breathesLava
+| false
+| If true, this entity can breathe in lava
+|-
+| Boolean
+| breathesSolids
+| false
+| If true, this entity can breathe in solid blocks
+|-
+| Boolean
+| breathesWater
+| false
+| If true, this entity can breathe in water
+|-
+| Boolean
+| generatesBubbles
+| true
+| If true, this entity will have visible bubbles while in water
+|-
+| List
+| nonBreatheBlocks
+|
+| List of blocks this entity can't breathe in, in addition to the above
+|-
+| Integer
+| suffocateTime
+| -20
+| Time in seconds between suffocation damage
+|-
+| Integer
+| totalSupply
+| 15
+| Time in seconds the entity can hold its breath
+|}
+=== ''minecraft:''breedable ===
+
+;Description
+
+: Defines the way an entity can get into the 'love' state.
+
+;Parameters
+
+: {| class="wikitable"
+! Type !! Name !! Default Value !! Description
+|-
+| Boolean
+| allowSitting
+| false
+| If true, entities can breed while sitting
+|-
+| Decimal
+| breedCooldown
+| 60.0
+| Time in seconds before the Entity can breed again
+|-
+| List
+| breedItems
+|
+| The list of items that can be used to get the entity into the 'love' state
+|-
+| List
+| breedsWith
+|
+| The list of entity definitions that this entity can breed with
+;Parameters
+
+: {| class="wikitable"
+! Type !! Name !! Default Value !! Description
+|-
+| String
+| babyType
+|
+| The entity definition of this entity's babies
+|-
+| String
+| breed_event
+|
+| Event to run when this entity breeds
+|-
+| String
+| mateType
+|
+| The entity definition of this entity's mate
+|}
+|-
+| Decimal
+| extraBabyChance
+| 0.0
+| Chance that up to 16 babies will spawn between 0.0 and 1.0, where 1.0 is 100%
+|-
+| Boolean
+| inheritTamed
+| true
+| If true, the babies will be automatically tamed if its parents are
+|-
+| JSON Object
+| mutation_factor
+|
+| Determines how likely the babies are to NOT inherit one of their parent's variances. Values are between 0.0 and 1.0, with a higher number meaning more likely to mutate
+;Parameters
+
+: {| class="wikitable"
+! Type !! Name !! Default Value !! Description
+|-
+| Decimal
+| color
+| 0.0
+| The percentage chance of a mutation on the entity's color
+|-
+| Decimal
+| extra_variant
+| 0.0
+| The percentage chance of a mutation on the entity's extra variant type
+|-
+| Decimal
+| variant
+| 0.0
+| The percentage chance of a mutation on the entity's variant type
+|}
+|-
+| Boolean
+| requireTame
+| true
+| If true, the entities need to be tamed first before they can breed.
+|}
+=== ''minecraft:''damage_sensor ===
+
+;Description
+
+: Defines what events to call when this entity is damaged by specific entities or items. Can be either an array or a single instance.
+
+;Parameters
+
+: {| class="wikitable"
+! Type !! Name !! Default Value !! Description
+|-
+| String
+| cause
+|
+| Type of damage that triggers this set of events
+|-
+| Boolean
+| deals_damage
+| true
+| If true, the damage dealt to the entity will take off health from it. Set to false to make the entity ignore that damage
+|-
+| List
+| on_damage
+|
+| List of triggers with the events to call when taking this specific kind of damage. Allows specifying filters for entity definitions and events
+|}
+=== ''minecraft:''environment_sensor ===
+
+;Description
+
+: Creates a trigger based on environment conditions.
+
+;Parameters
+
+: {| class="wikitable"
+! Type !! Name !! Default Value !! Description
+|-
+| List
+| on_environment
+|
+| The list of triggers that fire when the environment conditions match the given filter criteria.
+|}
+=== ''minecraft:''equippable ===
+
+;Description
+
+: Defines an entity's behavior for having items equipped to it
+
+;Parameters
+
+: {| class="wikitable"
+! Type !! Name !! Default Value !! Description
+|-
+| List
+| slots
+|
+| List of slots and the item that can be equipped
+;Parameters
+
+: {| class="wikitable"
+! Type !! Name !! Default Value !! Description
+|-
+| List
+| accepted_items
+|
+| The list of items that can go in this slot
+|-
+| String
+| interact_text
+|
+| Text to be displayed when the entity can be equipped with this item when playing with Touch-screen controls
+|-
+| String
+| item
+|
+| Name of the item that can be equipped for this slot
+|-
+| String
+| on_equip
+|
+| Event to trigger when this entity is equipped with this item
+|-
+| String
+| on_unequip
+|
+| Event to trigger when this item is removed from this entity
+|-
+| Integer
+| slot
+| 0
+| The slot number of this slot
+|}
+|}
+=== ''minecraft:''explode ===
+
+;Description
+
+: Defines how the entity explodes.
+
+;Parameters
+
+: {| class="wikitable"
+! Type !! Name !! Default Value !! Description
+|-
+| Boolean
+| breaks_blocks
+| true
+| If true, the explosion will destroy blocks in the explosion radius
+|-
+| Boolean
+| causesFire
+| false
+| If true, blocks in the explosion radius will be set on fire
+|-
+| Boolean
+| destroyAffectedByGriefing
+| false
+| If true, whether the explosion breaks blocks is affected by the mob griefing game rule
+|-
+| Boolean
+| fireAffectedByGriefing
+| false
+| If true, whether the explosion causes fire is affected by the mob griefing game rule
+|-
+| Range [a, b]
+| fuseLength
+| [0.0, 0.0]
+| The range for the random amount of time the fuse will be lit before exploding. A negative value means the explosion will be immediate
+|-
+| Boolean
+| fuseLit
+| false
+| If true, the fuse is already lit when this component is added to the entity
+|-
+| Decimal
+| maxResistance
+| Infinite
+| Blocks with less resistance than this value will be broken by the explosion
+|-
+| Decimal
+| power
+| 3.0
+| The radius of the explosion in blocks and the amount of damage the explosion deals
+|}
+=== ''minecraft:''healable ===
+
+;Description
+
+: Defines the interactions with this entity for healing it.
+
+;Parameters
+
+: {| class="wikitable"
+! Type !! Name !! Default Value !! Description
+|-
+| List
+| items
+|
+| The list of items that can be used to heal this entity
+;Parameters
+
+: {| class="wikitable"
+! Type !! Name !! Default Value !! Description
+|-
+| Minecraft Filter
+| filters
+|
+| The list of conditions for this trigger
+|-
+| Boolean
+| force_use
+| false
+| Determines if item can be used regardless of entity being full health
+|-
+| Decimal
+| heal_amount
+| 1.0
+| The amount of health this entity gains when fed this item
+|-
+| String
+| item
+|
+| Name of the item this entity likes and can be used to heal this entity
+|}
+|}
+=== ''minecraft:''interact ===
+
+;Description
+
+: Defines interactions with this entity.
+
+;Parameters
+
+: {| class="wikitable"
+! Type !! Name !! Default Value !! Description
+|-
+| JSON Object
+| add_items
+|
+| Loot table with items to add to the player's inventory upon successful interaction
+;Parameters
+
+: {| class="wikitable"
+! Type !! Name !! Default Value !! Description
+|-
+| String
+| table
+|
+| File path, relative to the Behavior Pack's path, to the loot table file
+|}
+|-
+| Decimal
+| cooldown
+| 0.0
+| Time in seconds before this entity can be interacted with again
+|-
+| Integer
+| hurt_item
+| 0
+| The amount of damage the item will take when used to interact with this entity. A value of 0 means the item won't lose durability
+|-
+| String
+| interact_text
+|
+| Text to show when the player is able to interact in this way with this entity when playing with Touch-screen controls
+|-
+| String
+| on_interact
+|
+| Event to fire when the interaction occurs
+|-
+| String
+| play_sounds
+|
+| List of sounds to play when the interaction occurs
+|-
+| String
+| spawn_entities
+|
+| List of entities to spawn when the interaction occurs
+|-
+| JSON Object
+| spawn_items
+|
+| Loot table with items to drop on the ground upon successful interaction
+;Parameters
+
+: {| class="wikitable"
+! Type !! Name !! Default Value !! Description
+|-
+| String
+| table
+|
+| File path, relative to the Behavior Pack's path, to the loot table file
+|}
+|-
+| Boolean
+| swing
+| false
+| If true, the player will do the 'swing' animation when interacting with this entity
+|-
+| String
+| transform_to_item
+|
+| The item used will transform to this item upon successful interaction. Format: itemName:auxValue
+|-
+| Boolean
+| use_item
+| false
+| If true, the interaction will use an item
+|}
+=== ''minecraft:''inventory ===
+
+;Description
+
+: Defines this entity's inventory properties.
+
+;Parameters
+
+: {| class="wikitable"
+! Type !! Name !! Default Value !! Description
+|-
+| Integer
+| additional_slots_per_strength
+| 0
+| Number of slots that this entity can gain per extra strength
+|-
+| Boolean
+| can_be_siphoned_from
+| false
+| If true, the contents of this inventory can be removed by a hopper
+|-
+| String
+| container_type
+| none
+| Type of container this entity has. Can be horse, minecart_chest, minecart_hopper, inventory, container or hopper
+|-
+| Integer
+| inventory_size
+| 5
+| Number of slots the container has
+|-
+| Integer
+| linked_slots_size
+| 0
+| Number of linked slots (e.g. Player Hotbar) the container has
+|-
+| Boolean
+| private
+| false
+| If true, only the entity can access the inventory
+|-
+| Boolean
+| restrict_to_owner
+| false
+| If true, the entity's inventory can only be accessed by its owner or itself
+|}
+=== ''minecraft:''item_hopper ===
+
+;Description
+
+: Determines that this entity is an item hopper
+
+=== ''minecraft:''jump.dynamic ===
+
+;Description
+
+: Defines a dynamic type jump control that will change jump properties based on the speed modifier of the mob.
+
+=== ''minecraft:''jump.static ===
+
+;Description
+
+: Gives the entity the ability to jump.
+
+=== ''minecraft:''leashable ===
+
+;Description
+
+: Allows this entity to be leashed and Defines the conditions and events for this entity when is leashed.
+
+;Parameters
+
+: {| class="wikitable"
+! Type !! Name !! Default Value !! Description
+|-
+| Decimal
+| hard_distance
+| 6.0
+| Distance in blocks at which the leash stiffens, restricting movement
+|-
+| Decimal
+| max_distance
+| 10.0
+| Distance in blocks at which the leash breaks
+|-
+| String
+| on_leash
+|
+| Event to call when this entity is leashed
+|-
+| String
+| on_unleash
+|
+| Event to call when this entity is unleashed
+|-
+| Decimal
+| soft_distance
+| 4.0
+| Distance in blocks at which the 'spring' effect starts acting to keep this entity close to the entity that leashed it
+|}
+=== ''minecraft:''lookat ===
+
+;Description
+
+: Defines the behavior when another entity looks at this entity.
+
+;Parameters
+
+: {| class="wikitable"
+! Type !! Name !! Default Value !! Description
+|-
+| String
+| filters
+| player
+| Defines the entities that can trigger this component
+|-
+| Range [a, b]
+| look_cooldown
+| [0.0, 0.0]
+| The range for the random amount of time during which the entity is 'cooling down' and won't get angered or look for a target
+|-
+| String
+| look_event
+|
+| Event to run when the entities specified in filters look at this entity
+|-
+| Boolean
+| mAllowInvulnerable
+| false
+| If true, invulnerable entities (e.g. Players in creative mode) are considered valid targets
+|-
+| Decimal
+| searchRadius
+| 10.0
+| Maximum distance this entity will look for another entity looking at it
+|-
+| Boolean
+| setTarget
+| true
+| If true, this entity will set the attack target as the entity that looked at it
+|}
+=== ''minecraft:''movement.basic ===
+
+;Description
+
+: This component accents the movement of an entity.
+
+;Parameters
+
+: {| class="wikitable"
+! Type !! Name !! Default Value !! Description
+|-
+| Decimal
+| max_turn
+| 30.0
+| The maximum number in degrees the mob can turn per tick.
+|}
+=== ''minecraft:''movement.fly ===
+
+;Description
+
+: This move control causes the mob to fly.
+
+;Parameters
+
+: {| class="wikitable"
+! Type !! Name !! Default Value !! Description
+|-
+| Decimal
+| max_turn
+| 30.0
+| The maximum number in degrees the mob can turn per tick.
+|}
+=== ''minecraft:''movement.jump ===
+
+;Description
+
+: Move control that causes the mob to jump as it moves with a specified delay between jumps.
+
+;Parameters
+
+: {| class="wikitable"
+! Type !! Name !! Default Value !! Description
+|-
+| Range [a, b]
+| jump_delay
+| [0.0, 0.0]
+| Delay after landing when using the slime move control.
+|-
+| Decimal
+| max_turn
+| 30.0
+| The maximum number in degrees the mob can turn per tick.
+|}
+=== ''minecraft:''movement.skip ===
+
+;Description
+
+: This move control causes the mob to hop as it moves.
+
+;Parameters
+
+: {| class="wikitable"
+! Type !! Name !! Default Value !! Description
+|-
+| Decimal
+| max_turn
+| 30.0
+| The maximum number in degrees the mob can turn per tick.
+|}
+=== ''minecraft:''movement.sway ===
+
+;Description
+
+: This move control causes the mob to sway side to side giving the impression it is swimming.
+
+;Parameters
+
+: {| class="wikitable"
+! Type !! Name !! Default Value !! Description
+|-
+| Decimal
+| max_turn
+| 30.0
+| The maximum number in degrees the mob can turn per tick.
+|}
+=== ''minecraft:''nameable ===
+
+;Description
+
+: Allows this entity to be named (e.g. using a name tag)
+
+;Parameters
+
+: {| class="wikitable"
+! Type !! Name !! Default Value !! Description
+|-
+| Boolean
+| allowNameTagRenaming
+| true
+| If true, this entity can be renamed with name tags
+|-
+| Boolean
+| alwaysShow
+| false
+| If true, the name will always be shown
+|-
+| String
+| default_trigger
+|
+| Trigger to run when the entity gets named
+|-
+| JSON Object
+| name_actions
+|
+| Describes the special names for this entity and the events to call when the entity acquires those names
+;Parameters
+
+: {| class="wikitable"
+! Type !! Name !! Default Value !! Description
+|-
+| String
+| name_filter
+|
+| List of special names that will cause the events defined in 'on_named' to fire
+|-
+| String
+| on_named
+|
+| Event to be called when this entity acquires the name specified in 'name_filter'
+|}
+|}
+=== ''minecraft:''navigation.climb ===
+
+;Description
+
+: Allows this entity to generate paths that include vertical walls like the vanilla Spiders do.
+
+;Parameters
+
+: {| class="wikitable"
+! Type !! Name !! Default Value !! Description
+|-
+| Boolean
+| avoid_portals
+| false
+| Tells the pathfinder to avoid portals (like nether portals) when finding a path
+|-
+| Boolean
+| avoid_sun
+| false
+| Whether or not the pathfinder should avoid tiles that are exposed to the sun when creating paths
+|-
+| Boolean
+| avoid_water
+| false
+| Tells the pathfinder to avoid water when creating a path
+|-
+| Boolean
+| can_float
+| false
+| Tells the pathfinder whether or not it can float in water
+|-
+| Boolean
+| can_open_doors
+| false
+| Tells the pathfinder that it can path through a closed door assuming the AI will open the door
+|-
+| Boolean
+| can_pass_doors
+| true
+| Whether a path can be created through a door
+|}
+=== ''minecraft:''navigation.float ===
+
+;Description
+
+: Allows this entity to generate paths by flying around the air like the regular Ghast.
+
+;Parameters
+
+: {| class="wikitable"
+! Type !! Name !! Default Value !! Description
+|-
+| Boolean
+| avoid_portals
+| false
+| Tells the pathfinder to avoid portals (like nether portals) when finding a path
+|-
+| Boolean
+| avoid_sun
+| false
+| Whether or not the pathfinder should avoid tiles that are exposed to the sun when creating paths
+|-
+| Boolean
+| avoid_water
+| false
+| Tells the pathfinder to avoid water when creating a path
+|-
+| Boolean
+| can_float
+| false
+| Tells the pathfinder whether or not it can float in water
+|-
+| Boolean
+| can_open_doors
+| false
+| Tells the pathfinder that it can path through a closed door assuming the AI will open the door
+|-
+| Boolean
+| can_pass_doors
+| true
+| Whether a path can be created through a door
+|}
+=== ''minecraft:''navigation.fly ===
+
+;Description
+
+: Allows this entity to generate paths in the air like the vanilla Parrots do.
+
+;Parameters
+
+: {| class="wikitable"
+! Type !! Name !! Default Value !! Description
+|-
+| Boolean
+| avoid_portals
+| false
+| Tells the pathfinder to avoid portals (like nether portals) when finding a path
+|-
+| Boolean
+| avoid_sun
+| false
+| Whether or not the pathfinder should avoid tiles that are exposed to the sun when creating paths
+|-
+| Boolean
+| avoid_water
+| false
+| Tells the pathfinder to avoid water when creating a path
+|-
+| Boolean
+| can_float
+| false
+| Tells the pathfinder whether or not it can float in water
+|-
+| Boolean
+| can_open_doors
+| false
+| Tells the pathfinder that it can path through a closed door assuming the AI will open the door
+|-
+| Boolean
+| can_pass_doors
+| true
+| Whether a path can be created through a door
+|}
+=== ''minecraft:''navigation.swim ===
+
+;Description
+
+: Allows this entity to generate paths that include water.
+
+;Parameters
+
+: {| class="wikitable"
+! Type !! Name !! Default Value !! Description
+|-
+| Boolean
+| avoid_portals
+| false
+| Tells the pathfinder to avoid portals (like nether portals) when finding a path
+|-
+| Boolean
+| avoid_sun
+| false
+| Whether or not the pathfinder should avoid tiles that are exposed to the sun when creating paths
+|-
+| Boolean
+| avoid_water
+| false
+| Tells the pathfinder to avoid water when creating a path
+|-
+| Boolean
+| can_float
+| false
+| Tells the pathfinder whether or not it can float in water
+|-
+| Boolean
+| can_open_doors
+| false
+| Tells the pathfinder that it can path through a closed door assuming the AI will open the door
+|-
+| Boolean
+| can_pass_doors
+| true
+| Whether a path can be created through a door
+|}
+=== ''minecraft:''navigation.walk ===
+
+;Description
+
+: Allows this entity to generate paths by walking around and jumping up and down a block like regular mobs.
+
+;Parameters
+
+: {| class="wikitable"
+! Type !! Name !! Default Value !! Description
+|-
+| Boolean
+| avoid_portals
+| false
+| Tells the pathfinder to avoid portals (like nether portals) when finding a path
+|-
+| Boolean
+| avoid_sun
+| false
+| Whether or not the pathfinder should avoid tiles that are exposed to the sun when creating paths
+|-
+| Boolean
+| avoid_water
+| false
+| Tells the pathfinder to avoid water when creating a path
+|-
+| Boolean
+| can_float
+| false
+| Tells the pathfinder whether or not it can float in water
+|-
+| Boolean
+| can_open_doors
+| false
+| Tells the pathfinder that it can path through a closed door assuming the AI will open the door
+|-
+| Boolean
+| can_pass_doors
+| true
+| Whether a path can be created through a door
+|}
+=== ''minecraft:''peek ===
+
+;Description
+
+: Defines the entity's 'peek' behavior, defining the events that should be called during it
+
+;Parameters
+
+: {| class="wikitable"
+! Type !! Name !! Default Value !! Description
+|-
+| String
+| on_close
+|
+| Event to call when the entity is done peeking
+|-
+| String
+| on_open
+|
+| Event to call when the entity starts peeking
+|-
+| String
+| on_target_open
+|
+| Event to call when the entity's target entity starts peeking
+|}
+=== ''minecraft:''projectile ===
+
+;Description
+
+: Allows the entity to be a thrown entity.
+
+;Parameters
+
+: {| class="wikitable"
+! Type !! Name !! Default Value !! Description
+|-
+| Decimal
+| angleoffset
+| 0.0
+| Determines the angle at which the projectile is thrown
+|-
+| Boolean
+| catchFire
+| false
+| If true, the entity hit will be set on fire
+|-
+| Boolean
+| critParticleOnHurt
+| false
+| If true, the projectile will produce additional particles when a critical hit happens
+|-
+| Boolean
+| destroyOnHurt
+| false
+| If true, this entity will be destroyed when hit
+|-
+| String
+| filter
+|
+| Entity Definitions defined here can't be hurt by the projectile
+|-
+| Boolean
+| fireAffectedByGriefing
+| false
+| If true, whether the projectile causes fire is affected by the mob griefing game rule
+|-
+| Decimal
+| gravity
+| 0.05
+| The gravity applied to this entity when thrown. The higher the value, the faster the entity falls
+|-
+| String
+| hitSound
+|
+| The sound that plays when the projectile hits something
+|-
+| Boolean
+| homing
+| false
+| If true, the projectile homes in to the nearest entity
+|-
+| Decimal
+| inertia
+| 0.99
+| The fraction of the projectile's speed maintained every frame while traveling in air
+|-
+| Boolean
+| isdangerous
+| false
+| If true, the projectile will be treated as dangerous to the players
+|-
+| Boolean
+| knockback
+| true
+| If true, the projectile will knock back the entity it hits
+|-
+| Decimal
+| liquid_inertia
+| 0.6
+| The fraction of the projectile's speed maintained every frame while traveling in water
+|-
+| Vector [a, b, c]
+| offset
+| [0.0, 0.5, 0.0]
+| The offset from the entity's anchor where the projectile will spawn
+|-
+| Decimal
+| onFireTime
+| 5.0
+| Time in seconds that the entity hit will be on fire for
+|-
+| String
+| particle
+| iconcrack
+| Particle to use upon collision
+|-
+| Integer
+| potionEffect
+| -1
+| Defines the effect the arrow will apply to the entity it hits
+|-
+| Decimal
+| power
+| 1.3
+| Determines the velocity of the projectile
+|-
+| Boolean
+| reflectOnHurt
+| false
+| If true, this entity will be reflected back when hit
+|-
+| Boolean
+| semirandomdiffdamage
+| false
+| If true, damage will be randomized based on damage and speed
+|-
+| String
+| shootSound
+|
+| The sound that plays when the projectile is shot
+|-
+| Boolean
+| shoottarget
+| true
+| If true, the projectile will be shot towards the target of the entity firing it
+|-
+| Boolean
+| shouldbounce
+| false
+| If true, the projectile will bounce upon hit
+|-
+| Boolean
+| splashPotion
+| false
+| If true, the projectile will be treated like a splash potion
+|-
+| Decimal
+| splashRange
+| 4.0
+| Radius in blocks of the 'splash' effect
+|-
+| Decimal
+| uncertaintyBase
+| 0.0
+| The base accuracy. Accuracy is determined by the formula uncertaintyBase - difficultyLevel * uncertaintyMultiplier
+|-
+| Decimal
+| uncertaintyMultiplier
+| 0.0
+| Determines how much difficulty affects accuracy. Accuracy is determined by the formula uncertaintyBase - difficultyLevel * uncertaintyMultiplier
+|}
+=== ''minecraft:''rail_movement ===
+
+;Description
+
+: Defines the entity's movement on the rails. An entity with this component is only allowed to move on the rail.
+
+;Parameters
+
+: {| class="wikitable"
+! Type !! Name !! Default Value !! Description
+|-
+| Decimal
+| max_speed
+| 0.4
+| Maximum speed that this entity will move at when on the rail
+|}
+=== ''minecraft:''rail_sensor ===
+
+;Description
+
+: Defines the behavior of the entity when the rail gets activated or deactivated.
+
+;Parameters
+
+: {| class="wikitable"
+! Type !! Name !! Default Value !! Description
+|-
+| Boolean
+| check_block_types
+| false
+| If true, on tick this entity will trigger its on_deactivate behavior
+|-
+| Boolean
+| eject_on_activate
+| true
+| If true, this entity will eject all of its riders when it passes over an activated rail
+|-
+| Boolean
+| eject_on_deactivate
+| false
+| If true, this entity will eject all of its riders when it passes over a deactivated rail
+|-
+| String
+| on_activate
+|
+| Event to call when the rail is activated
+|-
+| String
+| on_deactivate
+|
+| Event to call when the rail is deactivated
+|-
+| Boolean
+| tick_command_block_on_activate
+| true
+| If true, command blocks will start ticking when passing over an activated rail
+|-
+| Boolean
+| tick_command_block_on_deactivate
+| false
+| If false, command blocks will stop ticking when passing over a deactivated rail
+|}
+=== ''minecraft:''rideable ===
+
+;Description
+
+: Determines whether this entity can be ridden. Allows specifying the different seat positions and quantity.
+
+;Parameters
+
+: {| class="wikitable"
+! Type !! Name !! Default Value !! Description
+|-
+| Integer
+| controlling_seat
+| 0
+| The seat that designates the driver of the entity
+|-
+| Boolean
+| crouching_skip_interact
+| true
+| If true, this entity can't be interacted with if the entity interacting with it is crouching
+|-
+| List
+| family_types
+|
+| List of entities that can ride this entity
+|-
+| String
+| interact_text
+|
+| The text to display when the player can interact with the entity when playing with Touch-screen controls
+|-
+| Boolean
+| pull_in_entities
+| false
+| If true, this entity will pull in entities that are in the correct family_types into any available seats
+|-
+| Integer
+| seat_count
+| 1
+| The number of entities that can ride this entity at the same time
+|-
+| List
+| seats
+|
+| The list of positions and number of riders for each position for entities riding this entity
+;Parameters
+
+: {| class="wikitable"
+! Type !! Name !! Default Value !! Description
+|-
+| Decimal
+| lock_rider_rotation
+| 181.0
+| Angle in degrees that a rider is allowed to rotate while riding this entity. Omit this property for no limit
+|-
+| Integer
+| max_rider_count
+| 0
+| Defines the maximum number of riders that can be riding this entity for this seat to be valid
+|-
+| Integer
+| min_rider_count
+| 0
+| Defines the minimum number of riders that need to be riding this entity before this seat can be used
+|-
+| Vector [a, b, c]
+| position
+| [0.0, 0.0, 0.0]
+| Position of this seat relative to this entity's position
+|-
+| Decimal
+| rotate_rider_by
+| 0.0
+| Offset to rotate riders by
+|}
+|}
+=== ''minecraft:''scale_by_age ===
+
+;Description
+
+: Defines the entity's size interpolation based on the entity's age.
+
+;Parameters
+
+: {| class="wikitable"
+! Type !! Name !! Default Value !! Description
+|-
+| Decimal
+| end_scale
+| 1.0
+| Ending scale of the entity when it's fully grown
+|-
+| Decimal
+| start_scale
+| 1.0
+| Initial scale of the newborn entity
+|}
+=== ''minecraft:''shareables ===
+
+;Description
+
+: Defines a list of items the mob wants to share. Each item must have the following parameters:
+
+;Parameters
+
+: {| class="wikitable"
+! Type !! Name !! Default Value !! Description
+|-
+| String
+| craft_into
+|
+| Defines the item this entity wants to craft with the item defined above. Should be an item name
+|-
+| String
+| item
+|
+| The name of the item
+|-
+| Integer
+| surplus_amount
+| -1
+| Number of this item considered extra that the entity wants to share
+|-
+| Integer
+| want_amount
+| -1
+| Number of this item this entity wants to share
+|}
+=== ''minecraft:''shooter ===
+
+;Description
+
+: Defines the entity's ranged attack behavior.
+
+;Parameters
+
+: {| class="wikitable"
+! Type !! Name !! Default Value !! Description
+|-
+| Integer
+| auxVal
+| -1
+| ID of the Potion effect to be applied on hit
+|-
+| String
+| def
+|
+| Entity definition to use as projectile for the ranged attack. The entity definition must have the projectile component to be able to be shot as a projectile
+|}
+=== ''minecraft:''sittable ===
+
+;Description
+
+: Defines the entity's 'sit' state.
+
+;Parameters
+
+: {| class="wikitable"
+! Type !! Name !! Default Value !! Description
+|-
+| String
+| sit_event
+|
+| Event to run when the entity enters the 'sit' state
+|-
+| String
+| stand_event
+|
+| Event to run when the entity exits the 'sit' state
+|}
+=== ''minecraft:''spawn_entity ===
+
+;Description
+
+: Adds a timer after which this entity will spawn another entity or item (similar to vanilla's chicken's egg-laying behavior).
+
+;Parameters
+
+: {| class="wikitable"
+! Type !! Name !! Default Value !! Description
+|-
+| Integer
+| max_wait_time
+| 600
+| Maximum amount of time to randomly wait in seconds before another entity is spawned
+|-
+| Integer
+| min_wait_time
+| 300
+| Minimum amount of time to randomly wait in seconds before another entity is spawned
+|-
+| String
+| spawn_entity
+|
+| Identifier of the entity to spawn. Leave empty to spawn the item defined above instead
+|-
+| String
+| spawn_event
+| ''minecraft:''entity_born
+| Event to call when the entity is spawned
+|-
+| String
+| spawn_item
+| egg
+| Name of the item to spawn
+|-
+| String
+| spawn_method
+| born
+| Method to use to spawn the entity
+|-
+| String
+| spawn_sound
+| plop
+| Name of the sound effect to play when the entity is spawned
+|}
+=== ''minecraft:''tameable ===
+
+;Description
+
+: Defines the rules for a mob to be tamed by the player.
+
+;Parameters
+
+: {| class="wikitable"
+! Type !! Name !! Default Value !! Description
+|-
+| Decimal
+| probability
+| 1.0
+| The chance of taming the entity with each item use between 0.0 and 1.0, where 1.0 is 100%
+|-
+| List
+| tameItems
+|
+| The list of items that can be used to tame this entity
+|-
+| String
+| tame_event
+|
+| Event to run when this entity becomes tamed
+|}
+=== ''minecraft:''tamemount ===
+
+;Description
+
+: Allows the Entity to be tamed by mounting it.
+
+;Parameters
+
+: {| class="wikitable"
+! Type !! Name !! Default Value !! Description
+|-
+| Integer
+| attemptTemperMod
+| 5
+| The amount the entity's temper will increase when mounted
+|-
+| JSON Object
+| autoRejectItems
+|
+| The list of items that, if carried while interacting with the entity, will anger it
+;Parameters
+
+: {| class="wikitable"
+! Type !! Name !! Default Value !! Description
+|-
+| String
+| item
+|
+| Name of the item this entity dislikes and will cause it to get angry if used while untamed
+|}
+|-
+| JSON Object
+| feedItems
+|
+| The list of items that can be used to increase the entity's temper and speed up the taming process
+;Parameters
+
+: {| class="wikitable"
+! Type !! Name !! Default Value !! Description
+|-
+| String
+| item
+|
+| Name of the item this entity likes and can be used to increase this entity's temper
+|-
+| Decimal
+| temperMod
+| 0.0
+| The amount of temper this entity gains when fed this item
+|}
+|-
+| String
+| feed_text
+|
+| The text that shows in the feeding interact button
+|-
+| Integer
+| maxTemper
+| 100
+| The maximum value for the entity's random starting temper
+|-
+| Integer
+| minTemper
+| 0
+| The minimum value for the entity's random starting temper
+|-
+| String
+| ride_text
+|
+| The text that shows in the riding interact button
+|-
+| String
+| tame_event
+|
+| Event that triggers when the entity becomes tamed
+|}
+=== ''minecraft:''target_nearby_sensor ===
+
+;Description
+
+: Defines the entity's range within which it can see or sense other entities to target them.
+
+;Parameters
+
+: {| class="wikitable"
+! Type !! Name !! Default Value !! Description
+|-
+| Decimal
+| inside_range
+| 1.0
+| Maximum distance in blocks that another entity will be considered in the 'inside' range
+|-
+| String
+| on_inside_range
+|
+| Event to call when an entity gets in the inside range. Can specify 'event' for the name of the event and 'target' for the target of the event
+|-
+| String
+| on_outside_range
+|
+| Event to call when an entity gets in the outside range. Can specify 'event' for the name of the event and 'target' for the target of the event
+|-
+| Decimal
+| outside_range
+| 5.0
+| Maximum distance in blocks that another entity will be considered in the 'outside' range
+|}
+=== ''minecraft:''teleport ===
+
+;Description
+
+: Defines an entity's teleporting behavior.
+
+;Parameters
+
+: {| class="wikitable"
+! Type !! Name !! Default Value !! Description
+|-
+| Decimal
+| darkTeleportChance
+| 0.01
+| Modifies the chance that the entity will teleport if the entity is in darkness
+|-
+| Decimal
+| lightTeleportChance
+| 0.01
+| Modifies the chance that the entity will teleport if the entity is in daylight
+|-
+| Decimal
+| maxRandomTeleportTime
+| 20.0
+| Maximum amount of time in seconds between random teleports
+|-
+| Decimal
+| minRandomTeleportTime
+| 0.0
+| Minimum amount of time in seconds between random teleports
+|-
+| Vector [a, b, c]
+| randomTeleportCube
+| [32.0, 16.0, 32.0]
+| Entity will teleport to a random position within the area defined by this cube
+|-
+| Boolean
+| randomTeleports
+| true
+| If true, the entity will teleport randomly
+|-
+| Decimal
+| targetDistance
+| 16.0
+| Maximum distance the entity will teleport when chasing a target
+|-
+| Decimal
+| target_teleport_chance
+| 1.0
+| The chance that the entity will teleport between 0.0 and 1.0. 1.0 means 100%
+|}
+=== ''minecraft:''tick_world ===
+
+;Description
+
+: Defines if the entity ticks the world and the radius around it to tick.
+
+;Parameters
+
+: {| class="wikitable"
+! Type !! Name !! Default Value !! Description
+|-
+| Decimal
+| distance_to_players
+| 128
+| The distance at which the closest player has to be before this entity despawns. This option will be ignored if never_despawn is true. Min: 128 blocks.
+|-
+| Boolean
+| never_despawn
+| true
+| If true, this entity will not despawn even if players are far away. If false, distance_to_players will be used to determine when to despawn.
+|-
+| Positive Integer
+| radius
+| 2
+| The area around the entity to tick. Default: 2. Allowed range: 2-6.
+|}
+=== ''minecraft:''timer ===
+
+;Description
+
+: Adds a timer after which an event will fire.
+
+;Parameters
+
+: {| class="wikitable"
+! Type !! Name !! Default Value !! Description
+|-
+| Boolean
+| looping
+| true
+| If true, the timer will restart every time after it fires
+|-
+| Boolean
+| randomInterval
+| true
+| If true, the amount of time on the timer will be random between the min and max values specified in time
+|-
+| Range [a, b]
+| time
+| [0.0, 0.0]
+| Amount of time in seconds for the timer. Can be specified as a number or a pair of numbers (min and max)
+|-
+| String
+| time_down_event
+|
+| Event to fire when the time on the timer runs out
+|}
+=== ''minecraft:''trade_table ===
+
+;Description
+
+: Defines this entity's ability to trade with players.
+
+;Parameters
+
+: {| class="wikitable"
+! Type !! Name !! Default Value !! Description
+|-
+| String
+| display_name
+|
+| Name to be displayed while trading with this entity
+|-
+| String
+| table
+|
+| File path relative to the resource pack root for this entity's trades
+|}
+=== ''minecraft:''transformation ===
+
+;Description
+
+: Defines an entity's transformation from the current definition into another
+
+;Parameters
+
+: {| class="wikitable"
+! Type !! Name !! Default Value !! Description
+|-
+| JSON Object
+| add
+|
+| List of components to add to the entity after the transformation
+;Parameters
+
+: {| class="wikitable"
+! Type !! Name !! Default Value !! Description
+|-
+| List
+| component_groups
+|
+| Names of component groups to add
+|}
+|-
+| String
+| begin_transform_sound
+|
+| Sound to play when the transformation starts
+|-
+| JSON Object
+| delay
+|
+| Defines the properties of the delay for the transformation
+;Parameters
+
+: {| class="wikitable"
+! Type !! Name !! Default Value !! Description
+|-
+| Decimal
+| block_assist_chance
+| 0.0
+| Chance that the entity will look for nearby blocks that can speed up the transformation. Value must be between 0.0 and 1.0
+|-
+| Decimal
+| block_chance
+| 0.0
+| Chance that, once a block is found, will help speed up the transformation
+|-
+| Integer
+| block_max
+| 0
+| Maximum number of blocks the entity will look for to aid in the transformation. If not defined or set to 0, it will be set to the block radius
+|-
+| Integer
+| block_radius
+| 0
+| Distance in Blocks that the entity will search for blocks that can help the transformation
+|-
+| List
+| block_types
+|
+| List of blocks that can help the transformation of this entity
+|-
+| Decimal
+| value
+| 0.0
+| Time in seconds before the entity transforms
+|}
+|-
+| String
+| into
+|
+| Entity Definition that this entity will transform into
+|-
+| String
+| transformation_sound
+|
+| Sound to play when the entity is done transforming
+|}
+
+
+== AI Goals ==
+
+=== ''minecraft:''behavior.avoid_mob_type ===
+
+;Description
+
+: Allows this entity to avoid certain mob types.
+
+;Parameters
+
+: {| class="wikitable"
+! Type !! Name !! Default Value !! Description
+|-
+| JSON Object
+| entity_types
+|
+| List of entity types this mob avoids.
+;Parameters
+
+: {| class="wikitable"
+! Type !! Name !! Default Value !! Description
+|-
+| Minecraft Filter
+| filters
+|
+| Conditions that make this entry in the list valid
+|-
+| Decimal
+| max_dist
+| 16
+| Maximum distance this mob can be away to be a valid choice
+|-
+| Boolean
+| must_see
+| false
+| If true, the mob has to be visible to be a valid choice
+|-
+| Decimal
+| sprint_speed_multiplier
+| 1.0
+| Multiplier for the running speed. A value of 1.0 means the speed is unchanged
+|-
+| Decimal
+| walk_speed_multiplier
+| 1.0
+| Multiplier for the walking speed. A value of 1.0 means the speed is unchanged
+|}
+|-
+| Decimal
+| max_dist
+| 0.0
+| Maximum distance to look for an entity
+|-
+| Decimal
+| probability_per_strength
+| 1.0
+| Determines how likely it is that this entity will stop avoiding another entity based on that entity's strength
+|-
+| Decimal
+| sprint_speed_multiplier
+| 1.0
+| Multiplier for running speed. 1.0 means keep the regular speed, while higher numbers make the running speed faster
+|-
+| Decimal
+| walk_speed_multiplier
+| 1.0
+| Multiplier for walking speed. 1.0 means keep the regular speed, while higher numbers make the walking speed faster
+|}
+=== ''minecraft:''behavior.beg ===
+
+;Description
+
+: Allows this mob to look at and follow the player that holds food they like.
+
+;Parameters
+
+: {| class="wikitable"
+! Type !! Name !! Default Value !! Description
+|-
+| List
+| items
+|
+| List of items that this mob likes
+|-
+| Decimal
+| look_distance
+| 8.0
+| Distance in blocks the mob will beg from
+|-
+| Range [a, b]
+| look_time
+| [2, 4]
+| The range of time in seconds this mob will stare at the player holding a food they like, begging for it
+|}
+=== ''minecraft:''behavior.break_door ===
+
+;Description
+
+: Allows this mob to break doors.
+
+=== ''minecraft:''behavior.breed ===
+
+;Description
+
+: Allows this mob to breed with other mobs.
+
+;Parameters
+
+: {| class="wikitable"
+! Type !! Name !! Default Value !! Description
+|-
+| Decimal
+| speed_multiplier
+| 1.0
+| Movement speed multiplier of the mob when using this AI Goal
+|}
+=== ''minecraft:''behavior.charge_attack ===
+
+;Description
+
+: Allows the mob to attack its target by running at it.
+
+=== ''minecraft:''behavior.controlled_by_player ===
+
+;Description
+
+: Allows the mob to be controlled by the player.
+
+=== ''minecraft:''behavior.defend_village_target ===
+
+;Description
+
+: Allows the mob to stay in the village and fight mobs hostile to the villagers.
+
+;Parameters
+
+: {| class="wikitable"
+! Type !! Name !! Default Value !! Description
+|-
+| JSON Object
+| entity_types
+|
+| List of entity types this mob considers a threat to the village
+;Parameters
+
+: {| class="wikitable"
+! Type !! Name !! Default Value !! Description
+|-
+| Minecraft Filter
+| filters
+|
+| Conditions that make this entry in the list valid
+|-
+| Decimal
+| max_dist
+| 16
+| Maximum distance this mob can be away to be a valid choice
+|-
+| Boolean
+| must_see
+| false
+| If true, the mob has to be visible to be a valid choice
+|-
+| Decimal
+| sprint_speed_multiplier
+| 1.0
+| Multiplier for the running speed. A value of 1.0 means the speed is unchanged
+|-
+| Decimal
+| walk_speed_multiplier
+| 1.0
+| Multiplier for the walking speed. A value of 1.0 means the speed is unchanged
+|}
+|}
+=== ''minecraft:''behavior.door_interact ===
+
+;Description
+
+: Allows the mob to open and close doors.
+
+=== ''minecraft:''behavior.dragonchargeplayer ===
+
+;Description
+
+: Allows the dragon to attack a player by flying fast at them. The player is chosen by the dragonscanning goal. Can only be used by the Ender Dragon.
+
+=== ''minecraft:''behavior.dragondeath ===
+
+;Description
+
+: Allows the dragon to go out with glory. This controls the Ender Dragon's death animation and can't be used by other mobs.
+
+=== ''minecraft:''behavior.dragonflaming ===
+
+;Description
+
+: Allows the dragon to use its flame breath attack. Can only be used by the Ender Dragon.
+
+=== ''minecraft:''behavior.dragonholdingpattern ===
+
+;Description
+
+: Allows the Dragon to fly around in a circle around the center podium. Can only be used by the Ender Dragon.
+
+=== ''minecraft:''behavior.dragonlanding ===
+
+;Description
+
+: Allows the Dragon to stop flying and transition into perching mode. Can only be used by the Ender Dragon.
+
+=== ''minecraft:''behavior.dragonscanning ===
+
+;Description
+
+: Allows the dragon to look around for a player to attack while in perch mode. Can only be used by the Ender Dragon.
+
+=== ''minecraft:''behavior.dragonstrafeplayer ===
+
+;Description
+
+: Allows the dragon to fly around looking for a player and shoot fireballs at them. Can only be used by the Ender Dragon.
+
+=== ''minecraft:''behavior.dragontakeoff ===
+
+;Description
+
+: Allows the dragon to leave perch mode and go back to flying around. Can only be used by the Ender Dragon.
+
+=== ''minecraft:''behavior.eat_block ===
+
+;Description
+
+: Allows the mob to eat a block (for example, sheep eating grass).
+
+;Parameters
+
+: {| class="wikitable"
+! Type !! Name !! Default Value !! Description
+|-
+| Trigger
+| on_eat
+|
+| Trigger to fire when the mob eats a block of grass
+|}
+=== ''minecraft:''behavior.enderman_leave_block ===
+
+;Description
+
+: Allows the enderman to drop a block they are carrying. Can only be used by Endermen.
+
+=== ''minecraft:''behavior.enderman_take_block ===
+
+;Description
+
+: Allows the enderman to take a block and carry it around. Can only be used by Endermen.
+
+=== ''minecraft:''behavior.find_mount ===
+
+;Description
+
+: Allows the mob to look around for another mob to ride atop it.
+
+;Parameters
+
+: {| class="wikitable"
+! Type !! Name !! Default Value !! Description
+|-
+| Boolean
+| avoid_water
+| false
+| If true, the mob will not go into water blocks when going towards a mount
+|-
+| Decimal
+| mount_distance
+| -1.0
+| This is the distance the mob needs to be, in blocks, from the desired mount to mount it. If the value is below 0, the mob will use its default attack distance
+|-
+| Integer
+| start_delay
+| 0
+| Time the mob will wait before starting to move towards the mount
+|-
+| Boolean
+| target_needed
+| false
+| If true, the mob will only look for a mount if it has a target
+|-
+| Decimal
+| within_radius
+| 0.0
+| Distance in blocks within which the mob will look for a mount
+|}
+=== ''minecraft:''behavior.flee_sun ===
+
+;Description
+
+: Allows the mob to run away from direct sunlight and seek shade.
+
+;Parameters
+
+: {| class="wikitable"
+! Type !! Name !! Default Value !! Description
+|-
+| Decimal
+| speed_multiplier
+| 1.0
+| Movement speed multiplier of the mob when using this AI Goal
+|}
+=== ''minecraft:''behavior.float ===
+
+;Description
+
+: Allows the mob to stay afloat while swimming.
+
+=== ''minecraft:''behavior.float_wander ===
+
+;Description
+
+: Allows the mob to float around like the Ghast.
+
+;Parameters
+
+: {| class="wikitable"
+! Type !! Name !! Default Value !! Description
+|-
+| Range [a, b]
+| float_duration
+| [0.0, 0.0]
+| Range of time in seconds the mob will float around before landing and choosing to do something else
+|-
+| Boolean
+| must_reach
+| false
+| If true, the point has to be reachable to be a valid target
+|-
+| Boolean
+| random_reselect
+| false
+| If true, the mob will randomly pick a new point while moving to the previously selected one
+|-
+| Integer
+| xz_dist
+| 10
+| Distance in blocks on ground that the mob will look for a new spot to move to. Must be at least 1
+|-
+| Integer
+| y_dist
+| 7
+| Distance in blocks that the mob will look up or down for a new spot to move to. Must be at least 1
+|-
+| Decimal
+| y_offset
+| 0.0
+| Height in blocks to add to the selected target position
+|}
+=== ''minecraft:''behavior.follow_caravan ===
+
+;Description
+
+: Allows the mob to follow mobs that are in a caravan.
+
+;Parameters
+
+: {| class="wikitable"
+! Type !! Name !! Default Value !! Description
+|-
+| Integer
+| entity_count
+| 1
+| Number of entities that can be in the caravan
+|-
+| JSON Object
+| entity_types
+|
+| List of entity types that this mob can follow in a caravan
+;Parameters
+
+: {| class="wikitable"
+! Type !! Name !! Default Value !! Description
+|-
+| Minecraft Filter
+| filters
+|
+| Conditions that make this entry in the list valid
+|-
+| Decimal
+| max_dist
+| 16
+| Maximum distance this mob can be away to be a valid choice
+|-
+| Boolean
+| must_see
+| false
+| If true, the mob has to be visible to be a valid choice
+|-
+| Decimal
+| sprint_speed_multiplier
+| 1.0
+| Multiplier for the running speed. A value of 1.0 means the speed is unchanged
+|-
+| Decimal
+| walk_speed_multiplier
+| 1.0
+| Multiplier for the walking speed. A value of 1.0 means the speed is unchanged
+|}
+|-
+| Decimal
+| speed_multiplier
+| 1.0
+| Movement speed multiplier of the mob when using this AI Goal
+|}
+=== ''minecraft:''behavior.follow_mob ===
+
+;Description
+
+: Allows the mob to follow other mobs.
+
+;Parameters
+
+: {| class="wikitable"
+! Type !! Name !! Default Value !! Description
+|-
+| Integer
+| search_range
+| 0
+| The distance in blocks it will look for a mob to follow
+|-
+| Decimal
+| speed_multiplier
+| 1.0
+| Movement speed multiplier of the mob when using this AI Goal
+|-
+| Decimal
+| stop_distance
+| 2.0
+| The distance in blocks this mob stops from the mob it is following
+|}
+=== ''minecraft:''behavior.follow_owner ===
+
+;Description
+
+: Allows the mob to follow the player that owns them.
+
+;Parameters
+
+: {| class="wikitable"
+! Type !! Name !! Default Value !! Description
+|-
+| Decimal
+| speed_multiplier
+| 1.0
+| Movement speed multiplier of the mob when using this AI Goal
+|-
+| Decimal
+| start_distance
+| 10.0
+| The distance in blocks that the owner can be away from this mob before it starts following it
+|-
+| Decimal
+| stop_distance
+| 2.0
+| The distance in blocks this mob will stop from its owner while following it
+|}
+=== ''minecraft:''behavior.follow_parent ===
+
+;Description
+
+: Allows the mob to follow their parent around.
+
+;Parameters
+
+: {| class="wikitable"
+! Type !! Name !! Default Value !! Description
+|-
+| Decimal
+| speed_multiplier
+| 1.0
+| Movement speed multiplier of the mob when using this AI Goal
+|}
+=== ''minecraft:''behavior.guardian_attack ===
+
+;Description
+
+: Allows the guardian to use its laser beam attack. Can only be used by Guardians and Elder Guardians.
+
+=== ''minecraft:''behavior.harvest_farm_block ===
+
+;Description
+
+: Allows the villager to harvest nearby farms. Can only be used by Villagers.
+
+;Parameters
+
+: {| class="wikitable"
+! Type !! Name !! Default Value !! Description
+|-
+| Decimal
+| speed_multiplier
+| 1.0
+| Movement speed multiplier of the mob when using this AI Goal
+|}
+=== ''minecraft:''behavior.hurt_by_target ===
+
+;Description
+
+: Allows the mob to target another mob that hurts them.
+
+;Parameters
+
+: {| class="wikitable"
+! Type !! Name !! Default Value !! Description
+|-
+| Boolean
+| alert_same_type
+| false
+| If true, nearby mobs of the same type will be alerted about the damage
+|-
+| JSON Object
+| entity_types
+|
+| List of entity types that this mob can target when hurt by them
+;Parameters
+
+: {| class="wikitable"
+! Type !! Name !! Default Value !! Description
+|-
+| Minecraft Filter
+| filters
+|
+| Conditions that make this entry in the list valid
+|-
+| Decimal
+| max_dist
+| 16
+| Maximum distance this mob can be away to be a valid choice
+|-
+| Boolean
+| must_see
+| false
+| If true, the mob has to be visible to be a valid choice
+|-
+| Decimal
+| sprint_speed_multiplier
+| 1.0
+| Multiplier for the running speed. A value of 1.0 means the speed is unchanged
+|-
+| Decimal
+| walk_speed_multiplier
+| 1.0
+| Multiplier for the walking speed. A value of 1.0 means the speed is unchanged
+|}
+|-
+| Boolean
+| hurt_owner
+| false
+| If true, the mob will hurt its owner and other mobs with the same owner as itself
+|}
+=== ''minecraft:''behavior.leap_at_target ===
+
+;Description
+
+: Allows monsters to jump at and attack their target. Can only be used by hostile mobs.
+
+;Parameters
+
+: {| class="wikitable"
+! Type !! Name !! Default Value !! Description
+|-
+| Boolean
+| must_be_on_ground
+| true
+| If true, the mob will only jump at its target if its on the ground. Setting it to false will allow it to jump even if its already in the air
+|-
+| Decimal
+| yd
+| 0.0
+| The height in blocks the mob jumps when leaping at its target
+|}
+=== ''minecraft:''behavior.look_at_entity ===
+
+;Description
+
+: Allows the mob to look at nearby entities.
+
+;Parameters
+
+: {| class="wikitable"
+! Type !! Name !! Default Value !! Description
+|-
+| Integer
+| angle_of_view_horizontal
+| 360
+| The angle in degrees that the mob can see in the Y-axis (up-down)
+|-
+| Integer
+| angle_of_view_vertical
+| 360
+| The angle in degrees that the mob can see in the X-axis (left-right)
+|-
+| Minecraft Filter
+| filters
+|
+| Filter to determine the conditions for this mob to look at the entity
+|-
+| Decimal
+| look_distance
+| 8.0
+| The distance in blocks from which the entity will look at
+|-
+| Range [a, b]
+| look_time
+| [2, 4]
+| Time range to look at the entity
+|-
+| Decimal
+| probability
+| 0.02
+| The probability of looking at the target. A value of 1.00 is 100%
+|}
+=== ''minecraft:''behavior.look_at_player ===
+
+;Description
+
+: Allows the mob to look at the player when the player is nearby.
+
+;Parameters
+
+: {| class="wikitable"
+! Type !! Name !! Default Value !! Description
+|-
+| Integer
+| angle_of_view_horizontal
+| 360
+| The angle in degrees that the mob can see in the Y-axis (up-down)
+|-
+| Integer
+| angle_of_view_vertical
+| 360
+| The angle in degrees that the mob can see in the X-axis (left-right)
+|-
+| Decimal
+| look_distance
+| 8.0
+| The distance in blocks from which the entity will look at
+|-
+| Range [a, b]
+| look_time
+| [2, 4]
+| Time range to look at the entity
+|-
+| Decimal
+| probability
+| 0.02
+| The probability of looking at the target. A value of 1.00 is 100%
+|}
+=== ''minecraft:''behavior.look_at_target ===
+
+;Description
+
+: Allows the mob to look at the entity they are targetting.
+
+;Parameters
+
+: {| class="wikitable"
+! Type !! Name !! Default Value !! Description
+|-
+| Integer
+| angle_of_view_horizontal
+| 360
+| The angle in degrees that the mob can see in the Y-axis (up-down)
+|-
+| Integer
+| angle_of_view_vertical
+| 360
+| The angle in degrees that the mob can see in the X-axis (left-right)
+|-
+| Decimal
+| look_distance
+| 8.0
+| The distance in blocks from which the entity will look at
+|-
+| Range [a, b]
+| look_time
+| [2, 4]
+| Time range to look at the entity
+|-
+| Decimal
+| probability
+| 0.02
+| The probability of looking at the target. A value of 1.00 is 100%
+|}
+=== ''minecraft:''behavior.look_at_trading_player ===
+
+;Description
+
+: Allows the mob to look at the player they are trading with.
+
+;Parameters
+
+: {| class="wikitable"
+! Type !! Name !! Default Value !! Description
+|-
+| Integer
+| angle_of_view_horizontal
+| 360
+| The angle in degrees that the mob can see in the Y-axis (up-down)
+|-
+| Integer
+| angle_of_view_vertical
+| 360
+| The angle in degrees that the mob can see in the X-axis (left-right)
+|-
+| Decimal
+| look_distance
+| 8.0
+| The distance in blocks from which the entity will look at
+|-
+| Range [a, b]
+| look_time
+| [2, 4]
+| Time range to look at the entity
+|-
+| Decimal
+| probability
+| 0.02
+| The probability of looking at the target. A value of 1.00 is 100%
+|}
+=== ''minecraft:''behavior.make_love ===
+
+;Description
+
+: Allows the villager to look for a mate to spawn other villagers with. Can only be used by Villagers.
+
+=== ''minecraft:''behavior.melee_attack ===
+
+;Description
+
+: Allows the mob to use close combat melee attacks.
+
+;Parameters
+
+: {| class="wikitable"
+! Type !! Name !! Default Value !! Description
+|-
+| String
+| attack_types
+|
+| Defines the entity types this mob will attack
+|-
+| Integer
+| random_stop_interval
+| 0
+| Defines the probability the mob will stop fighting. A value of 0 disables randomly stopping, while a value of 1 defines a 50% chance
+|-
+| Decimal
+| reach_multiplier
+| 2.0
+| Multiplier for how far outside its box the mob can reach its target (this can be used to simulate a mob with longer arms by making this bigger)
+|-
+| Decimal
+| speed_multiplier
+| 1.0
+| Movement speed multiplier of the mob when using this AI Goal
+|-
+| Boolean
+| track_target
+| false
+| If true, this mob will chase after the target as long as it's a valid target
+|}
+=== ''minecraft:''behavior.mount_pathing ===
+
+;Description
+
+: Allows the mob to move around on its own while mounted seeking a target to attack.
+
+;Parameters
+
+: {| class="wikitable"
+! Type !! Name !! Default Value !! Description
+|-
+| Decimal
+| speed_multiplier
+| 1.0
+| Movement speed multiplier of the mob when using this AI Goal
+|-
+| Decimal
+| target_dist
+| 0.0
+| The distance at which this mob wants to be away from its target
+|-
+| Boolean
+| track_target
+| false
+| If true, this mob will chase after the target as long as it's a valid target
+|}
+=== ''minecraft:''behavior.move_indoors ===
+
+;Description
+
+: Can only be used by Villagers. Allows them to seek shelter indoors.
+
+;Parameters
+
+: {| class="wikitable"
+! Type !! Name !! Default Value !! Description
+|-
+| Decimal
+| speed_multiplier
+| 1.0
+| Movement speed multiplier of the mob when using this AI Goal
+|}
+=== ''minecraft:''behavior.move_through_village ===
+
+;Description
+
+: Allows mob to path through villages.
+
+;Parameters
+
+: {| class="wikitable"
+! Type !! Name !! Default Value !! Description
+|-
+| Boolean
+| only_at_night
+| false
+| If true, the mob will only move through the village during night time
+|-
+| Decimal
+| speed_multiplier
+| 1.0
+| Movement speed multiplier of the mob when using this AI Goal
+|}
+=== ''minecraft:''behavior.move_towards_restriction ===
+
+;Description
+
+: Allows mob to move towards a defined area that the mob should be restricted to.
+
+;Parameters
+
+: {| class="wikitable"
+! Type !! Name !! Default Value !! Description
+|-
+| Decimal
+| speed_multiplier
+| 1.0
+| Movement speed multiplier of the mob when using this AI Goal
+|}
+=== ''minecraft:''behavior.move_towards_target ===
+
+;Description
+
+: Allows mob to move towards its current target.
+
+;Parameters
+
+: {| class="wikitable"
+! Type !! Name !! Default Value !! Description
+|-
+| Decimal
+| within_radius
+| 0.0
+| Defines the radius in blocks that the mob tries to be from the target. A value of 0 means it tries to occupy the same block as the target
+|}
+=== ''minecraft:''behavior.nearest_attackable_target ===
+
+;Description
+
+: Allows the mob to check for and pursue the nearest valid target.
+
+;Parameters
+
+: {| class="wikitable"
+! Type !! Name !! Default Value !! Description
+|-
+| Integer
+| attack_interval
+| 0
+| Time in seconds between attacks
+|-
+| JSON Object
+| entity_types
+|
+| List of entity types that this mob considers valid targets
+;Parameters
+
+: {| class="wikitable"
+! Type !! Name !! Default Value !! Description
+|-
+| Minecraft Filter
+| filters
+|
+| Conditions that make this entry in the list valid
+|-
+| Decimal
+| max_dist
+| 16
+| Maximum distance this mob can be away to be a valid choice
+|-
+| Boolean
+| must_see
+| false
+| If true, the mob has to be visible to be a valid choice
+|-
+| Decimal
+| sprint_speed_multiplier
+| 1.0
+| Multiplier for the running speed. A value of 1.0 means the speed is unchanged
+|-
+| Decimal
+| walk_speed_multiplier
+| 1.0
+| Multiplier for the walking speed. A value of 1.0 means the speed is unchanged
+|}
+|-
+| Boolean
+| must_reach
+| false
+| If true, only entities that this mob can path to can be selected as targets
+|-
+| Boolean
+| must_see
+| false
+| If true, only entities in this mob's viewing range can be selected as targets
+|-
+| Decimal
+| must_see_forget_duration
+| 3.0
+| Determines the amount of time in seconds that this mob will look for a target before forgetting about it and looking for a new one when the target isn't visible any more
+|-
+| Boolean
+| reselect_targets
+| false
+| If true, the target will change to the current closest entity whenever a different entity is closer
+|-
+| Decimal
+| within_radius
+| 0.0
+| Distance in blocks that the target can be within to launch an attack
+|}
+=== ''minecraft:''behavior.ocelot_sit_on_block ===
+
+;Description
+
+: Allows to mob to be able to sit in place like the ocelot.
+
+;Parameters
+
+: {| class="wikitable"
+! Type !! Name !! Default Value !! Description
+|-
+| Decimal
+| speed_multiplier
+| 1.0
+| Movement speed multiplier of the mob when using this AI Goal
+|}
+=== ''minecraft:''behavior.ocelotattack ===
+
+;Description
+
+: Can only be used by the Ocelot. Allows it to perform the sneak and pounce attack.
+
+;Parameters
+
+: {| class="wikitable"
+! Type !! Name !! Default Value !! Description
+|-
+| Decimal
+| sneak_speed_multiplier
+| 1.0
+| Multiplier for the sneaking speed. 1.0 means the ocelot will move at the speed it normally sneaks
+|-
+| Decimal
+| sprint_speed_multiplier
+| 1.0
+| Multiplier for the running speed of this mob while using this attack
+|-
+| Decimal
+| walk_speed_multiplier
+| 1.0
+| Multiplier for the walking speed while using this attack
+|}
+=== ''minecraft:''behavior.offer_flower ===
+
+;Description
+
+: Allows the mob to offer the player a flower like the Iron Golem does.
+
+=== ''minecraft:''behavior.open_door ===
+
+;Description
+
+: Allows the mob to open doors. Requires the mob to be able to path through doors, otherwise the mob won't even want to try opening them.
+
+;Parameters
+
+: {| class="wikitable"
+! Type !! Name !! Default Value !! Description
+|-
+| Boolean
+| close_door_after
+| true
+| If true, the mob will close the door after opening it and going through it
+|}
+=== ''minecraft:''behavior.owner_hurt_by_target ===
+
+;Description
+
+: Allows the mob to target another mob that hurts their owner.
+
+;Parameters
+
+: {| class="wikitable"
+! Type !! Name !! Default Value !! Description
+|-
+| JSON Object
+| entity_types
+|
+| List of entity types that this mob can target if they hurt their owner
+;Parameters
+
+: {| class="wikitable"
+! Type !! Name !! Default Value !! Description
+|-
+| Minecraft Filter
+| filters
+|
+| Conditions that make this entry in the list valid
+|-
+| Decimal
+| max_dist
+| 16
+| Maximum distance this mob can be away to be a valid choice
+|-
+| Boolean
+| must_see
+| false
+| If true, the mob has to be visible to be a valid choice
+|-
+| Decimal
+| sprint_speed_multiplier
+| 1.0
+| Multiplier for the running speed. A value of 1.0 means the speed is unchanged
+|-
+| Decimal
+| walk_speed_multiplier
+| 1.0
+| Multiplier for the walking speed. A value of 1.0 means the speed is unchanged
+|}
+|}
+=== ''minecraft:''behavior.owner_hurt_target ===
+
+;Description
+
+: Allows the mob to target a mob that is hurt by their owner.
+
+;Parameters
+
+: {| class="wikitable"
+! Type !! Name !! Default Value !! Description
+|-
+| JSON Object
+| entity_types
+|
+| List of entity types that this entity can target if the potential target is hurt by this mob's owner
+;Parameters
+
+: {| class="wikitable"
+! Type !! Name !! Default Value !! Description
+|-
+| Minecraft Filter
+| filters
+|
+| Conditions that make this entry in the list valid
+|-
+| Decimal
+| max_dist
+| 16
+| Maximum distance this mob can be away to be a valid choice
+|-
+| Boolean
+| must_see
+| false
+| If true, the mob has to be visible to be a valid choice
+|-
+| Decimal
+| sprint_speed_multiplier
+| 1.0
+| Multiplier for the running speed. A value of 1.0 means the speed is unchanged
+|-
+| Decimal
+| walk_speed_multiplier
+| 1.0
+| Multiplier for the walking speed. A value of 1.0 means the speed is unchanged
+|}
+|}
+=== ''minecraft:''behavior.panic ===
+
+;Description
+
+: Allows the mob to enter the panic state and run around in panic.
+
+;Parameters
+
+: {| class="wikitable"
+! Type !! Name !! Default Value !! Description
+|-
+| Boolean
+| force
+| false
+| If true, this mob will not stop panicking until it can't move anymore or the goal is removed from it
+|-
+| Decimal
+| speed_multiplier
+| 1.0
+| Movement speed multiplier of the mob when using this AI Goal
+|}
+=== ''minecraft:''behavior.peek ===
+
+;Description
+
+: Allows the mob to peek out. This is what the shulker uses to look out of its shell.
+
+=== ''minecraft:''behavior.pickup_items ===
+
+;Description
+
+: Allows the mob to pick up items on the ground.
+
+;Parameters
+
+: {| class="wikitable"
+! Type !! Name !! Default Value !! Description
+|-
+| Decimal
+| goal_radius
+| 0.5
+| Distance in blocks within the mob considers it has reached the goal. This is the "wiggle room" to stop the AI from bouncing back and forth trying to reach a specific spot
+|-
+| Decimal
+| max_dist
+| 0.0
+| Maximum distance this mob will look for items to pick up
+|-
+| Decimal
+| speed_multiplier
+| 1.0
+| Movement speed multiplier of the mob when using this AI Goal
+|-
+| Boolean
+| track_target
+| false
+| If true, this mob will chase after the target as long as it's a valid target
+|}
+=== ''minecraft:''behavior.play ===
+
+;Description
+
+: Allows the mob to play with other baby villagers. This can only be used by Villagers.
+
+;Parameters
+
+: {| class="wikitable"
+! Type !! Name !! Default Value !! Description
+|-
+| Decimal
+| speed_multiplier
+| 1.0
+| Movement speed multiplier of the mob when using this AI Goal
+|}
+=== ''minecraft:''behavior.player_ride_tamed ===
+
+;Description
+
+: Allows the mob to be ridden by the player after being tamed.
+
+=== ''minecraft:''behavior.raid_garden ===
+
+;Description
+
+: Allows the mob to eat crops out of farms until they are full.
+
+;Parameters
+
+: {| class="wikitable"
+! Type !! Name !! Default Value !! Description
+|-
+| List
+| blocks
+|
+| Blocks that the mob is looking for to eat
+|-
+| Integer
+| eat_delay
+| 2
+| Time in seconds between each time it eats
+|-
+| Integer
+| full_delay
+| 100
+| Amount of time in seconds before this mob wants to eat again
+|-
+| Decimal
+| goal_radius
+| 0.5
+| Distance in blocks within the mob considers it has reached the goal. This is the "wiggle room" to stop the AI from bouncing back and forth trying to reach a specific spot
+|-
+| Integer
+| max_to_eat
+| 6
+| Maximum number of things this entity wants to eat
+|-
+| Integer
+| search_range
+| 0
+| Distance in blocks the mob will look for crops to eat
+|-
+| Decimal
+| speed_multiplier
+| 1.0
+| Movement speed multiplier of the mob when using this AI Goal
+|}
+=== ''minecraft:''behavior.random_fly ===
+
+;Description
+
+: Allows a mob to randomly fly around.
+
+;Parameters
+
+: {| class="wikitable"
+! Type !! Name !! Default Value !! Description
+|-
+| Boolean
+| can_land_on_trees
+| true
+| If true, the mob can stop flying and land on a tree instead of the ground
+|-
+| Integer
+| xz_dist
+| 10
+| Distance in blocks on ground that the mob will look for a new spot to move to. Must be at least 1
+|-
+| Integer
+| y_dist
+| 7
+| Distance in blocks that the mob will look up or down for a new spot to move to. Must be at least 1
+|}
+=== ''minecraft:''behavior.random_look_around ===
+
+;Description
+
+: Allows the mob to randomly look around.
+
+;Parameters
+
+: {| class="wikitable"
+! Type !! Name !! Default Value !! Description
+|-
+| Range [a, b]
+| look_time
+| [2, 4]
+| The range of time in seconds the mob will stay looking in a random direction before looking elsewhere
+|}
+=== ''minecraft:''behavior.random_stroll ===
+
+;Description
+
+: Allows a mob to randomly stroll around.
+
+;Parameters
+
+: {| class="wikitable"
+! Type !! Name !! Default Value !! Description
+|-
+| Integer
+| xz_dist
+| 10
+| Distance in blocks on ground that the mob will look for a new spot to move to. Must be at least 1
+|-
+| Integer
+| y_dist
+| 7
+| Distance in blocks that the mob will look up or down for a new spot to move to. Must be at least 1
+|}
+=== ''minecraft:''behavior.ranged_attack ===
+
+;Description
+
+: Allows the mob to use ranged attacks like shooting arrows.
+
+;Parameters
+
+: {| class="wikitable"
+! Type !! Name !! Default Value !! Description
+|-
+| Integer
+| attack_interval_max
+| 0
+| Maximum amount of time in seconds the entity will wait after an attack before launching another
+|-
+| Integer
+| attack_interval_min
+| 0
+| Minimum amount of time in seconds the entity will wait after an attack before launching another
+|-
+| Decimal
+| attack_radius
+| 0.0
+| Maxmimum distance the target can be for this mob to fire. If the target is further away, this mob will move first before firing
+|-
+| Decimal
+| burst_interval
+| 0.0
+| Amount of time in seconds between each individual shot when firing multiple shots per attack
+|-
+| Integer
+| burst_shots
+| 1
+| Number of shots fired every time the mob uses a charged attack
+|-
+| Decimal
+| charge_charged_trigger
+| 0.0
+| The minimum amount of time in ticks the mob has to charge before firing a charged attack
+|-
+| Decimal
+| charge_shoot_trigger
+| 0.0
+| The minimum amount of time in ticks for the mob to start charging a charged shot. Must be greater than 0 to enable burst shots
+|-
+| Decimal
+| speed_multiplier
+| 1.0
+| Movement speed multiplier of the mob when using this AI Goal
+|}
+=== ''minecraft:''behavior.receive_love ===
+
+;Description
+
+: Allows the villager to stop so another villager can breed with it. Can only be used by a Villager.
+
+=== ''minecraft:''behavior.restrict_open_door ===
+
+;Description
+
+: Allows the mob to stay indoors during night time.
+
+=== ''minecraft:''behavior.restrict_sun ===
+
+;Description
+
+: Allows the mob to automatically start avoiding the sun when its a clear day out.
+
+=== ''minecraft:''behavior.run_around_like_crazy ===
+
+;Description
+
+: Allows the mob to run around aimlessly.
+
+;Parameters
+
+: {| class="wikitable"
+! Type !! Name !! Default Value !! Description
+|-
+| Decimal
+| speed_multiplier
+| 1.0
+| Movement speed multiplier of the mob when using this AI Goal
+|}
+=== ''minecraft:''behavior.send_event ===
+
+;Description
+
+: Allows the mob to send an event to another mob.
+
+;Parameters
+
+: {| class="wikitable"
+! Type !! Name !! Default Value !! Description
+|-
+| Decimal
+| cast_duration
+| Total delay of the steps
+| Time in seconds for the entire event sending process
+|-
+| List
+| sequence
+|
+| List of events to send
+;Parameters of each event
+
+: {| class="wikitable"
+! Type !! Name !! Default Value !! Description
+|-
+| Decimal
+| base_delay
+| 0.0
+| Amount of time in seconds before starting this step
+|-
+| String
+| event
+|
+| The event to send to the entity
+|-
+| String
+| sound_event
+|
+| The sound event to play when this step happens
+|}
+|}
+=== ''minecraft:''behavior.share_items ===
+
+;Description
+
+: Allows the mob to give items it has to others.
+
+;Parameters
+
+: {| class="wikitable"
+! Type !! Name !! Default Value !! Description
+|-
+| JSON Object
+| entity_types
+|
+| List of entities this mob will share items with
+;Parameters
+
+: {| class="wikitable"
+! Type !! Name !! Default Value !! Description
+|-
+| Minecraft Filter
+| filters
+|
+| Conditions that make this entry in the list valid
+|-
+| Decimal
+| max_dist
+| 16
+| Maximum distance this mob can be away to be a valid choice
+|-
+| Boolean
+| must_see
+| false
+| If true, the mob has to be visible to be a valid choice
+|-
+| Decimal
+| sprint_speed_multiplier
+| 1.0
+| Multiplier for the running speed. A value of 1.0 means the speed is unchanged
+|-
+| Decimal
+| walk_speed_multiplier
+| 1.0
+| Multiplier for the walking speed. A value of 1.0 means the speed is unchanged
+|}
+|-
+| Decimal
+| goal_radius
+| 0.5
+| Distance in blocks within the mob considers it has reached the goal. This is the "wiggle room" to stop the AI from bouncing back and forth trying to reach a specific spot
+|-
+| Decimal
+| max_dist
+| 0.0
+| Maximum distance in blocks this mob will look for entities to share items with
+|-
+| Decimal
+| speed_multiplier
+| 1.0
+| Movement speed multiplier of the mob when using this AI Goal
+|}
+=== ''minecraft:''behavior.silverfish_merge_with_stone ===
+
+;Description
+
+: Allows the mob to go into stone blocks like Silverfish do. Currently it can only be used by Silverfish.
+
+=== ''minecraft:''behavior.silverfish_wake_up_friends ===
+
+;Description
+
+: Allows the mob to alert mobs in nearby blocks to come out. Currently it can only be used by Silverfish.
+
+=== ''minecraft:''behavior.skeleton_horse_trap ===
+
+;Description
+
+: Allows Equine mobs to be Horse Traps and be triggered like them, spawning a lightning bolt and a bunch of horses when a player is nearby. Can only be used by Horses, Mules, Donkeys and Skeleton Horses.
+
+;Parameters
+
+: {| class="wikitable"
+! Type !! Name !! Default Value !! Description
+|-
+| Decimal
+| duration
+| 1.0
+| Amount of time in seconds the trap exists. After this amount of time is elapsed, the trap is removed from the world if it hasn't been activated
+|-
+| Decimal
+| within_radius
+| 0.0
+| Distance in blocks that the player has to be within to trigger the horse trap
+|}
+=== ''minecraft:''behavior.slime_attack ===
+
+;Description
+
+: Can only be used by Slimes and Magma Cubes. Allows the mob to use a melee attack like the slime's.
+
+=== ''minecraft:''behavior.slime_float ===
+
+;Description
+
+: Can only be used by Slimes and Magma Cubes. Controls their ability to float in water / lava.
+
+=== ''minecraft:''behavior.slime_keep_on_jumping ===
+
+;Description
+
+: Can only be used by Slimes and Magma Cubes. Allows the mob to continuously jump around like a slime.
+
+=== ''minecraft:''behavior.slime_random_direction ===
+
+;Description
+
+: Can only be used by Slimes and Magma Cubes. Allows the mob to move in random directions like a slime.
+
+=== ''minecraft:''behavior.squid_dive ===
+
+;Description
+
+: Allows the squid to dive down in water. Can only be used by the Squid.
+
+=== ''minecraft:''behavior.squid_flee ===
+
+;Description
+
+: Allows the squid to swim away. Can only be used by the Squid.
+
+=== ''minecraft:''behavior.squid_idle ===
+
+;Description
+
+: Allows the squid to swim in place idly. Can only be used by the Squid.
+
+=== ''minecraft:''behavior.squid_move_away_from_ground ===
+
+;Description
+
+: Allows the squid to move away from ground blocks and back to water. Can only be used by the Squid.
+
+=== ''minecraft:''behavior.squid_out_of_water ===
+
+;Description
+
+: Allows the squid to stick to the ground when outside water. Can only be used by the Squid.
+
+=== ''minecraft:''behavior.stay_while_sitting ===
+
+;Description
+
+: Allows the mob to stay put while it is in a sitting state instead of doing something else.
+
+=== ''minecraft:''behavior.stomp_attack ===
+
+;Description
+
+: Allows the mob to use the stomp attack.
+
+;Parameters
+
+: {| class="wikitable"
+! Type !! Name !! Default Value !! Description
+|-
+| String
+| attack_types
+|
+| Defines the entity types this mob will attack
+|-
+| Integer
+| random_stop_interval
+| 0
+| Defines the probability the mob will stop fighting. A value of 0 disables randomly stopping, while a value of 1 defines a 50% chance
+|-
+| Decimal
+| reach_multiplier
+| 2.0
+| Multiplier for how far outside its box the mob can reach its target (this can be used to simulate a mob with longer arms by making this bigger)
+|-
+| Decimal
+| speed_multiplier
+| 1.0
+| Movement speed multiplier of the mob when using this AI Goal
+|-
+| Boolean
+| track_target
+| false
+| If true, this mob will chase after the target as long as it's a valid target
+|}
+=== ''minecraft:''behavior.summon_entity ===
+
+;Description
+
+: Allows the mob to attack the player by summoning other entities.
+
+;Parameters
+
+: {| class="wikitable"
+! Type !! Name !! Default Value !! Description
+|-
+| List
+| summon_choices
+|
+| List of spells for the mob to use to summon entities. Each spell has the following parameters:
+;Parameters of each spell
+
+: {| class="wikitable"
+! Type !! Name !! Default Value !! Description
+|-
+| Decimal
+| cast_duration
+| Total delay of the steps
+| Time in seconds the spell casting will take
+|-
+| Decimal
+| cooldown_time
+| 0.0
+| Time in seconds the mob has to wait before using the spell again
+|-
+| Minecraft Filter
+| filters
+|
+|
+|-
+| Decimal
+| max_activation_range
+| -1.0
+| Upper bound of the activation distance in blocks for this spell
+|-
+| Decimal
+| min_activation_range
+| 1.0
+| Lower bound of the activation distance in blocks for this spell
+|-
+| Integer
+| particle_color
+| 0
+| The color of the particles for this spell
+|-
+| List
+| sequence
+|
+| List of steps for the spell. Each step has the following parameters:
+;Parameters of each step
+
+: {| class="wikitable"
+! Type !! Name !! Default Value !! Description
+|-
+| Decimal
+| base_delay
+| 0.0
+| Amount of time in seconds to wait before this step starts
+|-
+| Decimal
+| delay_per_summon
+| 0.0
+| Amount of time in seconds before each entity is summoned in this step
+|-
+| Decimal
+| entity_lifespan
+| -1.0
+| Amount of time in seconds that the spawned entity will be alive for. A value of -1.0 means it will remain alive for as long as it can
+|-
+| String
+| entity_type
+|
+| The entity type of the entities we will spawn in this step
+|-
+| Integer
+| num_entities_spawned
+| 1
+| Number of entities that will be spawned in this step
+|-
+| String
+| shape
+| line
+| The base shape of this step. Valid values are circle and line
+|-
+| Decimal
+| size
+| 1.0
+| The base size of the entity
+|-
+| String
+| sound_event
+|
+| The sound event to play for this step
+|-
+| Integer
+| summon_cap
+| 0
+| Maximum number of summoned entities at any given time
+|-
+| Decimal
+| summon_cap_radius
+| 0.0
+|
+|-
+| String
+| target
+| self
+| The target of the spell. This is where the spell will start (line will start here, circle will be centered here)
+|}
+|-
+| String
+| start_sound_event
+|
+| The sound event to play when using this spell
+|-
+| Decimal
+| weight
+| 0.0
+| The weight of this spell. Controls how likely the mob is to choose this spell when casting one
+|}
+|}
+=== ''minecraft:''behavior.swell ===
+
+;Description
+
+: Allows the creeper to swell up when a player is nearby. It can only be used by Creepers.
+
+;Parameters
+
+: {| class="wikitable"
+! Type !! Name !! Default Value !! Description
+|-
+| Decimal
+| start_distance
+| 10.0
+| This mob starts swelling when a target is at least this many blocks away
+|-
+| Decimal
+| stop_distance
+| 2.0
+| This mob stops swelling when a target has moved away at least this many blocks
+|}
+=== ''minecraft:''behavior.take_flower ===
+
+;Description
+
+: Can only be used by Villagers. Allows the mob to accept flowers from Iron Golems.
+
+=== ''minecraft:''behavior.tempt ===
+
+;Description
+
+: Allows the mob to be tempted by food they like.
+
+;Parameters
+
+: {| class="wikitable"
+! Type !! Name !! Default Value !! Description
+|-
+| Boolean
+| can_get_scared
+| false
+| If true, the mob can stop being tempted if the player moves too fast while close to this mob
+|-
+| List
+| items
+|
+| List of items this mob is tempted by
+|-
+| Decimal
+| speed_multiplier
+| 1.0
+| Movement speed multiplier of the mob when using this AI Goal
+|-
+| Decimal
+| within_radius
+| 0.0
+| Distance in blocks this mob can get tempted by a player holding an item they like
+|}
+=== ''minecraft:''behavior.trade_with_player ===
+
+;Description
+
+: Allows the player to trade with this mob.
+
+=== ''minecraft:''behavior.vex_copy_owner_target ===
+
+;Description
+
+: Allows the mob to target the same entity its owner is targeting.
+
+;Parameters
+
+: {| class="wikitable"
+! Type !! Name !! Default Value !! Description
+|-
+| JSON Object
+| entity_types
+|
+| List of entities this mob can copy the owner from
+;Parameters
+
+: {| class="wikitable"
+! Type !! Name !! Default Value !! Description
+|-
+| Minecraft Filter
+| filters
+|
+| Conditions that make this entry in the list valid
+|-
+| Decimal
+| max_dist
+| 16
+| Maximum distance this mob can be away to be a valid choice
+|-
+| Boolean
+| must_see
+| false
+| If true, the mob has to be visible to be a valid choice
+|-
+| Decimal
+| sprint_speed_multiplier
+| 1.0
+| Multiplier for the running speed. A value of 1.0 means the speed is unchanged
+|-
+| Decimal
+| walk_speed_multiplier
+| 1.0
+| Multiplier for the walking speed. A value of 1.0 means the speed is unchanged
+|}
+|}
+=== ''minecraft:''behavior.vex_random_move ===
+
+;Description
+
+: Allows the mob to move around randomly like the Vex.
+
+=== ''minecraft:''behavior.wither_random_attack_pos_goal ===
+
+;Description
+
+: Allows the wither to launch random attacks. Can only be used by the Wither Boss.
+
+=== ''minecraft:''behavior.wither_target_highest_damage ===
+
+;Description
+
+: Allows the wither to focus its attacks on whichever mob has dealt the most damage to it.
+
+;Parameters
+
+: {| class="wikitable"
+! Type !! Name !! Default Value !! Description
+|-
+| JSON Object
+| entity_types
+|
+| List of entity types the wither takes into account to find who dealt the most damage to it
+;Parameters
+
+: {| class="wikitable"
+! Type !! Name !! Default Value !! Description
+|-
+| Minecraft Filter
+| filters
+|
+| Conditions that make this entry in the list valid
+|-
+| Decimal
+| max_dist
+| 16
+| Maximum distance this mob can be away to be a valid choice
+|-
+| Boolean
+| must_see
+| false
+| If true, the mob has to be visible to be a valid choice
+|-
+| Decimal
+| sprint_speed_multiplier
+| 1.0
+| Multiplier for the running speed. A value of 1.0 means the speed is unchanged
+|-
+| Decimal
+| walk_speed_multiplier
+| 1.0
+| Multiplier for the walking speed. A value of 1.0 means the speed is unchanged
+|}
+|}
+
+
+== Filters ==
+
+: Filters allow data objects to specify test critera which allows their use.
+
+: For example, a model that includes a filter will only be used when the filter criteria is true.
+
+: A typical filter consists of four paramters:
+
+: name: the name of the test to apply.
+
+: domain: the domain the test should be performed in. An armor slot, for example. This parameter is only used by a few tests.
+
+: operator: the comparison to apply with the value, such as 'equal' or 'greater'.
+
+: value: the value being compared with the test.
+
+: A typical filter looks like the following:
+
+: { "test" : "moon_intensity", "subject" : "self", "operator" : "greater", "value" : "0.5" }
+
+: Which results in the calling entity (self) calculating the moon_intensity at its location and returning true if the result is greater than 0.5.
+
+: Tests can be combined into groups using the collections 'all_of' and 'any_of'.
+
+: All tests in an 'all_of' group must pass in order for the group to pass.
+
+: One or more tests in an 'any_of' group must pass in order for the group to pass.
+
+: Example:
+
+: "all_of" : [
+
+:   { "test" : "moon_intensity", "subject" : "self", "operator" : "greater", "value" : "0.5" },
+
+:   { "test" : "in_water", "subject" : "target", "operator" : "equal", "value" : "true" }
+
+: ]
+
+: This filter group will pass only when the moon_intensity is greater than 0.5 AND the caller's target entity is standing in water.
+
+=== clock_time ===
+
+;Description
+
+: Compares the current time with a float value in the range (0.0, 1.0).
+0.0= Noon
+0.25= Sunset
+0.5= Midnight
+0.75= Sunrise
+
+;Parameters
+
+: {| class="wikitable"
+! Type !! Name !! Default !! Description
+|-
+| String
+| operator
+| equals
+| (Optional) The comparison to apply with 'value'.
+|-
+| String
+| subject
+| self
+| (Optional) The subject of this filter test.
+|-
+| Decimal
+| value
+|
+| (Required) A floating point value.
+|}
+;Examples
+
+: Full..
+
+: { "test": "clock_time", "subject": "self", "operator": "equals", "value": 0 }
+
+: Short (using Defaults)..
+
+: { "test": "clock_time", "value": 0 }
+
+=== has_ability ===
+
+;Description
+
+: Returns true when the subject entity has the named ability.
+
+;Parameters
+
+: {| class="wikitable"
+! Type !! Name !! Default !! Description
+|-
+| String
+| operator
+| equals
+| (Optional) The comparison to apply with 'value'.
+
+|-
+| String
+| subject
+| self
+| (Optional) The subject of this filter test.
+|-
+| String
+| value
+|
+| (Required) The Ability type to test
+|}
+;Examples
+
+: Full..
+
+: { "test": "has_ability", "subject": "self", "operator": "equals", "value": "instabuild" }
+
+: Short (using Defaults)..
+
+: { "test": "has_ability", "value": "instabuild" }
+
+=== has_component ===
+
+;Description
+
+: Returns true when the subject entity contains the named component.
+
+;Parameters
+
+: {| class="wikitable"
+! Type !! Name !! Default !! Description
+|-
+| String
+| operator
+| equals
+| (Optional) The comparison to apply with 'value'.
+
+|-
+| String
+| subject
+| self
+| (Optional) The subject of this filter test.
+|-
+| String
+| value
+|
+| (Required) The component name to look for
+|}
+;Examples
+
+: Full..
+
+: { "test": "has_component", "subject": "self", "operator": "equals", "value": "''minecraft:''explode" }
+
+: Short (using Defaults)..
+
+: { "test": "has_component", "value": "''minecraft:''explode" }
+
+=== has_damage ===
+
+;Description
+
+: Returns true when the subject entity receives the named damage type.
+
+;Parameters
+
+: {| class="wikitable"
+! Type !! Name !! Default !! Description
+|-
+| String
+| operator
+| equals
+| (Optional) The comparison to apply with 'value'.
+
+|-
+| String
+| subject
+| self
+| (Optional) The subject of this filter test.
+|-
+| String
+| value
+|
+| (Required) The Damage type to test
+: {| class="wikitable"
+! Options !! Description
+|-
+| anvil
+|
+|-
+| attack
+|
+|-
+| block_explosion
+|
+|-
+| contact
+|
+|-
+| drowning
+|
+|-
+| entity_explosion
+|
+|-
+| fall
+|
+|-
+| falling_block
+|
+|-
+| fatal
+| Any damage which kills the subject
+|-
+| fire
+|
+|-
+| fire_tick
+|
+|-
+| fly_into_wall
+|
+|-
+| lava
+|
+|-
+| magic
+|
+|-
+| none
+|
+|-
+| override
+|
+|-
+| piston
+|
+|-
+| projectile
+|
+|-
+| starve
+|
+|-
+| suffocation
+|
+|-
+| suicide
+|
+|-
+| thorns
+|
+|-
+| void
+|
+|-
+| wither
+|
+|}
+|}
+;Examples
+
+: Full..
+
+: { "test": "has_damage", "subject": "self", "operator": "equals", "value": "fatal" }
+
+: Short (using Defaults)..
+
+: { "test": "has_damage", "value": "fatal" }
+
+=== has_equipment ===
+
+;Description
+
+: Tests for the presence of a named item in the designated slot of the subject entity.
+
+;Parameters
+
+: {| class="wikitable"
+! Type !! Name !! Default !! Description
+|-
+| String
+| domain
+| any
+| (Optional) The equipment location to test
+: {| class="wikitable"
+! Options !! Description
+|-
+| any
+|
+|-
+| armor
+|
+|-
+| feet
+|
+|-
+| hand
+|
+|-
+| head
+|
+|-
+| leg
+|
+|-
+| torso
+|
+|}
+|-
+| String
+| operator
+| equals
+| (Optional) The comparison to apply with 'value'.
+
+|-
+| String
+| subject
+| self
+| (Optional) The subject of this filter test.
+|-
+| String
+| value
+|
+| (Required) The item name to look for
+|}
+;Examples
+
+: Full..
+
+: { "test": "has_equipment", "subject": "self", "domain": "any", "operator": "equals", "value": "dirt" }
+
+: Short (using Defaults)..
+
+: { "test": "has_equipment", "value": "dirt" }
+
+=== in_caravan ===
+
+;Description
+
+: Returns true if the subject entity is in a caravan.
+
+;Parameters
+
+: {| class="wikitable"
+! Type !! Name !! Default !! Description
+|-
+| String
+| operator
+| equals
+| (Optional) The comparison to apply with 'value'.
+
+|-
+| String
+| subject
+| self
+| (Optional) The subject of this filter test.
+|-
+| Boolean
+| value
+| true
+| (Optional) true or false.
+|}
+;Examples
+
+: Full..
+
+: { "test": "in_caravan", "subject": "self", "operator": "equals", "value": "true" }
+
+: Short (using Defaults)..
+
+: { "test": "in_caravan" }
+
+=== in_clouds ===
+
+;Description
+
+: Returns true when the subject entity is in the clouds.
+
+;Parameters
+
+: {| class="wikitable"
+! Type !! Name !! Default !! Description
+|-
+| String
+| operator
+| equals
+| (Optional) The comparison to apply with 'value'.
+
+|-
+| String
+| subject
+| self
+| (Optional) The subject of this filter test.
+|-
+| Boolean
+| value
+| true
+| (Optional) true or false.
+|}
+;Examples
+
+: Full..
+
+: { "test": "in_clouds", "subject": "self", "operator": "equals", "value": "true" }
+
+: Short (using Defaults)..
+
+: { "test": "in_clouds" }
+
+=== in_lava ===
+
+;Description
+
+: Returns true when the subject entity is in lava.
+
+;Parameters
+
+: {| class="wikitable"
+! Type !! Name !! Default !! Description
+|-
+| String
+| operator
+| equals
+| (Optional) The comparison to apply with 'value'.
+
+|-
+| String
+| subject
+| self
+| (Optional) The subject of this filter test.
+|-
+| Boolean
+| value
+| true
+| (Optional) true or false.
+|}
+;Examples
+
+: Full..
+
+: { "test": "in_lava", "subject": "self", "operator": "equals", "value": "true" }
+
+: Short (using Defaults)..
+
+: { "test": "in_lava" }
+
+=== in_water ===
+
+;Description
+
+: Returns true when the subject entity is in water.
+
+;Parameters
+
+: {| class="wikitable"
+! Type !! Name !! Default !! Description
+|-
+| String
+| operator
+| equals
+| (Optional) The comparison to apply with 'value'.
+
+|-
+| String
+| subject
+| self
+| (Optional) The subject of this filter test.
+|-
+| Boolean
+| value
+| true
+| (Optional) true or false.
+|}
+;Examples
+
+: Full..
+
+: { "test": "in_water", "subject": "self", "operator": "equals", "value": "true" }
+
+: Short (using Defaults)..
+
+: { "test": "in_water" }
+
+=== is_altitude ===
+
+;Description
+
+: Tests the current altitude against a provided value. 0= bedrock elevation.
+
+;Parameters
+
+: {| class="wikitable"
+! Type !! Name !! Default !! Description
+|-
+| String
+| operator
+| equals
+| (Optional) The comparison to apply with 'value'.
+
+|-
+| String
+| subject
+| self
+| (Optional) The subject of this filter test.
+|-
+| Integer
+| value
+|
+| (Required) The altitude value to compare with
+|}
+;Examples
+
+: Full..
+
+: { "test": "is_altitude", "subject": "self", "operator": "equals", "value": 0 }
+
+: Short (using Defaults)..
+
+: { "test": "is_altitude", "value": 0 }
+
+=== is_biome ===
+
+;Description
+
+: Tests whether the Subject is currently in the named biome.
+
+;Parameters
+
+: {| class="wikitable"
+! Type !! Name !! Default !! Description
+|-
+| String
+| operator
+| equals
+| (Optional) The comparison to apply with 'value'.
+
+|-
+| String
+| subject
+| self
+| (Optional) The subject of this filter test.
+|-
+| String
+| value
+|
+| (Required) The Biome type to test
+: {| class="wikitable"
+! Options !! Description
+|-
+| beach
+|
+|-
+| desert
+|
+|-
+| extreme_hills
+|
+|-
+| flat
+|
+|-
+| forest
+|
+|-
+| ice
+|
+|-
+| jungle
+|
+|-
+| mesa
+|
+|-
+| mushroom_island
+|
+|-
+| ocean
+|
+|-
+| plain
+|
+|-
+| river
+|
+|-
+| savanna
+|
+|-
+| stone_beach
+|
+|-
+| swamp
+|
+|-
+| taiga
+|
+|-
+| the_end
+|
+|-
+| the_nether
+|
+|}
+|}
+;Examples
+
+: Full..
+
+: { "test": "is_biome", "subject": "self", "operator": "equals", "value": "beach" }
+
+: Short (using Defaults)..
+
+: { "test": "is_biome", "value": "beach" }
+
+=== is_brightness ===
+
+;Description
+
+: Tests the current brightness against a provided value in the range (0.0f, 1.0f).
+
+;Parameters
+
+: {| class="wikitable"
+! Type !! Name !! Default !! Description
+|-
+| String
+| operator
+| equals
+| (Optional) The comparison to apply with 'value'.
+
+|-
+| String
+| subject
+| self
+| (Optional) The subject of this filter test.
+|-
+| Decimal
+| value
+|
+| (Required) The brightness value to compare with.
+|}
+;Examples
+
+: Full..
+
+: { "test": "is_brightness", "subject": "self", "operator": "equals", "value": "0.5" }
+
+: Short (using Defaults)..
+
+: { "test": "is_brightness", "value": "0.5" }
+
+=== is_climbing ===
+
+;Description
+
+: Returns true if the subject entity is climbing.
+
+;Parameters
+
+: {| class="wikitable"
+! Type !! Name !! Default !! Description
+|-
+| String
+| operator
+| equals
+| (Optional) The comparison to apply with 'value'.
+
+|-
+| String
+| subject
+| self
+| (Optional) The subject of this filter test.
+|-
+| Boolean
+| value
+| true
+| (Optional) true or false.
+|}
+;Examples
+
+: Full..
+
+: { "test": "is_climbing", "subject": "self", "operator": "equals", "value": "true" }
+
+: Short (using Defaults)..
+
+: { "test": "is_climbing" }
+
+=== is_color ===
+
+;Description
+
+: Returns true if the subject entity is the named color.
+
+;Parameters
+
+: {| class="wikitable"
+! Type !! Name !! Default !! Description
+|-
+| String
+| operator
+| equals
+| (Optional) The comparison to apply with 'value'.
+
+|-
+| String
+| subject
+| self
+| (Optional) The subject of this filter test.
+|-
+| String
+| value
+|
+| (Required) The Palette Color to test
+: {| class="wikitable"
+! Options !! Description
+|-
+| black
+|
+|-
+| blue
+|
+|-
+| brown
+|
+|-
+| cyan
+|
+|-
+| gray
+|
+|-
+| green
+|
+|-
+| light_blue
+|
+|-
+| light_green
+|
+|-
+| magenta
+|
+|-
+| orange
+|
+|-
+| pink
+|
+|-
+| purple
+|
+|-
+| red
+|
+|-
+| silver
+|
+|-
+| white
+|
+|-
+| yellow
+|
+|}
+|}
+;Examples
+
+: Full..
+
+: { "test": "is_color", "subject": "self", "operator": "equals", "value": "white" }
+
+: Short (using Defaults)..
+
+: { "test": "is_color", "value": "white" }
+
+=== is_daytime ===
+
+;Description
+
+: Returns true during the daylight hours.
+
+;Parameters
+
+: {| class="wikitable"
+! Type !! Name !! Default !! Description
+|-
+| String
+| operator
+| equals
+| (Optional) The comparison to apply with 'value'.
+
+|-
+| String
+| subject
+| self
+| (Optional) The subject of this filter test.
+|-
+| Boolean
+| value
+| true
+| (Optional) true or false.
+|}
+;Examples
+
+: Full..
+
+: { "test": "is_daytime", "subject": "self", "operator": "equals", "value": "true" }
+
+: Short (using Defaults)..
+
+: { "test": "is_daytime" }
+
+=== is_difficulty ===
+
+;Description
+
+: Tests the current difficulty level of the game.
+
+;Parameters
+
+: {| class="wikitable"
+! Type !! Name !! Default !! Description
+|-
+| String
+| operator
+| equals
+| (Optional) The comparison to apply with 'value'.
+
+|-
+| String
+| subject
+| self
+| (Optional) The subject of this filter test.
+|-
+| String
+| value
+|
+| (Required) The game's difficulty level to test
+: {| class="wikitable"
+! Options !! Description
+|-
+| easy
+|
+|-
+| hard
+|
+|-
+| normal
+|
+|-
+| peaceful
+|
+|}
+|}
+;Examples
+
+: Full..
+
+: { "test": "is_difficulty", "subject": "self", "operator": "equals", "value": "normal" }
+
+: Short (using Defaults)..
+
+: { "test": "is_difficulty", "value": "normal" }
+
+=== is_family ===
+
+;Description
+
+: Returns true when the subject entity is a member of the named family.
+
+;Parameters
+
+: {| class="wikitable"
+! Type !! Name !! Default !! Description
+|-
+| String
+| operator
+| equals
+| (Optional) The comparison to apply with 'value'.
+
+|-
+| String
+| subject
+| self
+| (Optional) The subject of this filter test.
+|-
+| String
+| value
+|
+| (Required) The Family name to look for
+|}
+;Examples
+
+: Full..
+
+: { "test": "is_family", "subject": "self", "operator": "equals", "value": "player" }
+
+: Short (using Defaults)..
+
+: { "test": "is_family", "value": "player" }
+
+=== is_game_rule ===
+
+;Description
+
+: Tests whether a named game rule is active.
+
+;Parameters
+
+: {| class="wikitable"
+! Type !! Name !! Default !! Description
+|-
+| String
+| domain
+|
+| (Required) The Game Rule to test.
+|-
+| String
+| operator
+| equals
+| (Optional) The comparison to apply with 'value'.
+
+|-
+| String
+| subject
+| self
+| (Optional) The subject of this filter test.
+|-
+| Boolean
+| value
+| true
+| (Optional) true or false.
+|}
+;Examples
+
+: Full..
+
+: { "test": "is_game_rule", "subject": "self", "domain": "domobspawning", "operator": "equals", "value": "true" }
+
+: Short (using Defaults)..
+
+: { "test": "is_game_rule", "domain": "domobspawning" }
+
+=== is_humid ===
+
+;Description
+
+: Tests whether the Subject is in an area with humidity
+
+;Parameters
+
+: {| class="wikitable"
+! Type !! Name !! Default !! Description
+|-
+| String
+| operator
+| equals
+| (Optional) The comparison to apply with 'value'.
+
+|-
+| String
+| subject
+| self
+| (Optional) The subject of this filter test.
+|-
+| Boolean
+| value
+| true
+| (Optional) true or false.
+|}
+;Examples
+
+: Full..
+
+: { "test": "is_humid", "subject": "self", "operator": "equals", "value": "true" }
+
+: Short (using Defaults)..
+
+: { "test": "is_humid" }
+
+=== is_immobile ===
+
+;Description
+
+: Returns true if the subject entity is immobile. An entity is immobile if it lacks AI goals, has just changed dimensions or if it is a mob and has no health.
+
+;Parameters
+
+: {| class="wikitable"
+! Type !! Name !! Default !! Description
+|-
+| String
+| operator
+| equals
+| (Optional) The comparison to apply with 'value'.
+
+|-
+| String
+| subject
+| self
+| (Optional) The subject of this filter test.
+|-
+| Boolean
+| value
+| true
+| (Optional) true or false.
+|}
+;Examples
+
+: Full..
+
+: { "test": "is_immobile", "subject": "self", "operator": "equals", "value": "true" }
+
+: Short (using Defaults)..
+
+: { "test": "is_immobile" }
+
+=== is_moving ===
+
+;Description
+
+: Returns true if the subject entity is moving.
+
+;Parameters
+
+: {| class="wikitable"
+! Type !! Name !! Default !! Description
+|-
+| String
+| operator
+| equals
+| (Optional) The comparison to apply with 'value'.
+
+|-
+| String
+| subject
+| self
+| (Optional) The subject of this filter test.
+|-
+| Boolean
+| value
+| true
+| (Optional) true or false.
+|}
+;Examples
+
+: Full..
+
+: { "test": "is_moving", "subject": "self", "operator": "equals", "value": "true" }
+
+: Short (using Defaults)..
+
+: { "test": "is_moving" }
+
+=== is_owner ===
+
+;Description
+
+: Returns true if the subject entity is the owner of the calling entity.
+
+;Parameters
+
+: {| class="wikitable"
+! Type !! Name !! Default !! Description
+|-
+| String
+| operator
+| equals
+| (Optional) The comparison to apply with 'value'.
+
+|-
+| String
+| subject
+| self
+| (Optional) The subject of this filter test.
+|-
+| Boolean
+| value
+| true
+| (Optional) true or false.
+|}
+;Examples
+
+: Full..
+
+: { "test": "is_owner", "subject": "self", "operator": "equals", "value": "true" }
+
+: Short (using Defaults)..
+
+: { "test": "is_owner" }
+
+=== is_riding ===
+
+;Description
+
+: Returns true if the subject entity is riding on another entity.
+
+;Parameters
+
+: {| class="wikitable"
+! Type !! Name !! Default !! Description
+|-
+| String
+| operator
+| equals
+| (Optional) The comparison to apply with 'value'.
+
+|-
+| String
+| subject
+| self
+| (Optional) The subject of this filter test.
+|-
+| Boolean
+| value
+| true
+| (Optional) true or false.
+|}
+;Examples
+
+: Full..
+
+: { "test": "is_riding", "subject": "self", "operator": "equals", "value": "true" }
+
+: Short (using Defaults)..
+
+: { "test": "is_riding" }
+
+=== is_sneaking ===
+
+;Description
+
+: Returns true if the subject entity is sneaking.
+
+;Parameters
+
+: {| class="wikitable"
+! Type !! Name !! Default !! Description
+|-
+| String
+| operator
+| equals
+| (Optional) The comparison to apply with 'value'.
+
+|-
+| String
+| subject
+| self
+| (Optional) The subject of this filter test.
+|-
+| Boolean
+| value
+| true
+| (Optional) true or false.
+|}
+;Examples
+
+: Full..
+
+: { "test": "is_sneaking", "subject": "self", "operator": "equals", "value": "true" }
+
+: Short (using Defaults)..
+
+: { "test": "is_sneaking" }
+
+=== is_snow_covered ===
+
+;Description
+
+: Tests whether the Subject is in an area with snow cover
+
+;Parameters
+
+: {| class="wikitable"
+! Type !! Name !! Default !! Description
+|-
+| String
+| operator
+| equals
+| (Optional) The comparison to apply with 'value'.
+
+|-
+| String
+| subject
+| self
+| (Optional) The subject of this filter test.
+|-
+| Boolean
+| value
+| true
+| (Optional) true or false.
+|}
+;Examples
+
+: Full..
+
+: { "test": "is_snow_covered", "subject": "self", "operator": "equals", "value": "true" }
+
+: Short (using Defaults)..
+
+: { "test": "is_snow_covered" }
+
+=== is_target ===
+
+;Description
+
+: Returns true if the subject entity is the target of the calling entity.
+
+;Parameters
+
+: {| class="wikitable"
+! Type !! Name !! Default !! Description
+|-
+| String
+| operator
+| equals
+| (Optional) The comparison to apply with 'value'.
+
+|-
+| String
+| subject
+| self
+| (Optional) The subject of this filter test.
+|-
+| Boolean
+| value
+| true
+| (Optional) true or false.
+|}
+;Examples
+
+: Full..
+
+: { "test": "is_target", "subject": "self", "operator": "equals", "value": "true" }
+
+: Short (using Defaults)..
+
+: { "test": "is_target" }
+
+=== is_temperature_type ===
+
+;Description
+
+: Tests whether the current temperature is a given type.
+
+;Parameters
+
+: {| class="wikitable"
+! Type !! Name !! Default !! Description
+|-
+| String
+| operator
+| equals
+| (Optional) The comparison to apply with 'value'.
+
+|-
+| String
+| subject
+| self
+| (Optional) The subject of this filter test.
+|-
+| String
+| value
+|
+| (Required) The Biome temperature catagory to test
+: {| class="wikitable"
+! Options !! Description
+|-
+| cold
+|
+|-
+| mild
+|
+|-
+| ocean
+|
+|-
+| warm
+|
+|}
+|}
+;Examples
+
+: Full..
+
+: { "test": "is_temperature_type", "subject": "self", "operator": "equals", "value": "cold" }
+
+: Short (using Defaults)..
+
+: { "test": "is_temperature_type", "value": "cold" }
+
+=== is_temperature_value ===
+
+;Description
+
+: Tests the current temperature against a provided value in the range (0.0, 1.0) where 0.0f is the coldest temp and 1.0f is the hottest.
+
+;Parameters
+
+: {| class="wikitable"
+! Type !! Name !! Default !! Description
+|-
+| String
+| operator
+| equals
+| (Optional) The comparison to apply with 'value'.
+
+|-
+| String
+| subject
+| self
+| (Optional) The subject of this filter test.
+|-
+| Decimal
+| value
+|
+| (Required) The Biome temperature value to compare with.
+|}
+;Examples
+
+: Full..
+
+: { "test": "is_temperature_value", "subject": "self", "operator": "equals", "value": "0.5" }
+
+: Short (using Defaults)..
+
+: { "test": "is_temperature_value", "value": "0.5" }
+
+=== is_underground ===
+
+;Description
+
+: Returns true when the subject entity is underground. An entity is considered underground if there are solid blocks above it.
+
+;Parameters
+
+: {| class="wikitable"
+! Type !! Name !! Default !! Description
+|-
+| String
+| operator
+| equals
+| (Optional) The comparison to apply with 'value'.
+
+|-
+| String
+| subject
+| self
+| (Optional) The subject of this filter test.
+|-
+| Boolean
+| value
+| true
+| (Optional) true or false.
+|}
+;Examples
+
+: Full..
+
+: { "test": "is_underground", "subject": "self", "operator": "equals", "value": "true" }
+
+: Short (using Defaults)..
+
+: { "test": "is_underground" }
+
+=== is_underwater ===
+
+;Description
+
+: Returns true when the subject entity is under water. An entity is considered underwater if it is completely submerged in water blocks.
+
+;Parameters
+
+: {| class="wikitable"
+! Type !! Name !! Default !! Description
+|-
+| String
+| operator
+| equals
+| (Optional) The comparison to apply with 'value'.
+
+|-
+| String
+| subject
+| self
+| (Optional) The subject of this filter test.
+|-
+| Boolean
+| value
+| true
+| (Optional) true or false.
+|}
+;Examples
+
+: Full..
+
+: { "test": "is_underwater", "subject": "self", "operator": "equals", "value": "true" }
+
+: Short (using Defaults)..
+
+: { "test": "is_underwater" }
+
+=== is_variant ===
+
+;Description
+
+: Returns true if the subject entity is the variant number provided.
+
+;Parameters
+
+: {| class="wikitable"
+! Type !! Name !! Default !! Description
+|-
+| String
+| operator
+| equals
+| (Optional) The comparison to apply with 'value'.
+
+|-
+| String
+| subject
+| self
+| (Optional) The subject of this filter test.
+|-
+| Integer
+| value
+|
+| (Required) An integer value.
+|}
+;Examples
+
+: Full..
+
+: { "test": "is_variant", "subject": "self", "operator": "equals", "value": 0 }
+
+: Short (using Defaults)..
+
+: { "test": "is_variant", "value": 0 }
+
+=== moon_intensity ===
+
+;Description
+
+: Compares the current moon intensity with a float value in the range (0.0, 1.0)
+
+;Parameters
+
+: {| class="wikitable"
+! Type !! Name !! Default !! Description
+|-
+| String
+| operator
+| equals
+| (Optional) The comparison to apply with 'value'.
+
+|-
+| String
+| subject
+| self
+| (Optional) The subject of this filter test.
+|-
+| Decimal
+| value
+|
+| (Required) A floating point value.
+|}
+;Examples
+
+: Full..
+
+: { "test": "moon_intensity", "subject": "self", "operator": "equals", "value": 0 }
+
+: Short (using Defaults)..
+
+: { "test": "moon_intensity", "value": 0 }
+
+=== moon_phase ===
+
+;Description
+
+: Compares the current moon phase with an integer value in the range (0, 7).
+
+;Parameters
+
+: {| class="wikitable"
+! Type !! Name !! Default !! Description
+|-
+| String
+| operator
+| equals
+| (Optional) The comparison to apply with 'value'.
+
+|-
+| String
+| subject
+| self
+| (Optional) The subject of this filter test.
+|-
+| Integer
+| value
+|
+| (Required) An integer value.
+|}
+;Examples
+
+: Full..
+
+: { "test": "moon_phase", "subject": "self", "operator": "equals", "value": 0 }
+
+: Short (using Defaults)..
+
+: { "test": "moon_phase", "value": 0 }
+
+=== on_ladder ===
+
+;Description
+
+: Returns true when the subject entity is on a ladder.
+
+;Parameters
+
+: {| class="wikitable"
+! Type !! Name !! Default !! Description
+|-
+| String
+| operator
+| equals
+| (Optional) The comparison to apply with 'value'.
+
+|-
+| String
+| subject
+| self
+| (Optional) The subject of this filter test.
+|-
+| Boolean
+| value
+| true
+| (Optional) true or false.
+|}
+;Examples
+
+: Full..
+
+: { "test": "on_ladder", "subject": "self", "operator": "equals", "value": "true" }
+
+: Short (using Defaults)..
+
+: { "test": "on_ladder" }
+
+== Triggers ==
+
+=== ''minecraft:''on_death ===
+
+;Description
+
+: Only usable by the Ender Dragon. Adds a trigger to call on this entity's death.
+
+;Parameters
+
+: {| class="wikitable"
+! Type !! Name !! Default Value !! Description
+|-
+| String
+| event
+|
+| The event to run when the conditions for this trigger are met
+|-
+| Minecraft Filter
+| filters
+|
+| The list of conditions for this trigger
+|-
+| String
+| target
+| self
+| The target of the event
+|}
+=== ''minecraft:''on_friendly_anger ===
+
+;Description
+
+: Adds a trigger that will run when a nearby entity of the same type as this entity becomes Angry.
+
+;Parameters
+
+: {| class="wikitable"
+! Type !! Name !! Default Value !! Description
+|-
+| String
+| event
+|
+| The event to run when the conditions for this trigger are met
+|-
+| Minecraft Filter
+| filters
+|
+| The list of conditions for this trigger
+|-
+| String
+| target
+| self
+| The target of the event
+|}
+=== ''minecraft:''on_hurt ===
+
+;Description
+
+: Adds a trigger to call when this entity takes damage.
+
+;Parameters
+
+: {| class="wikitable"
+! Type !! Name !! Default Value !! Description
+|-
+| String
+| event
+|
+| The event to run when the conditions for this trigger are met
+|-
+| Minecraft Filter
+| filters
+|
+| The list of conditions for this trigger
+|-
+| String
+| target
+| self
+| The target of the event
+|}
+=== ''minecraft:''on_hurt_by_player ===
+
+;Description
+
+: Adds a trigger to call when this entity is attacked by the player.
+
+;Parameters
+
+: {| class="wikitable"
+! Type !! Name !! Default Value !! Description
+|-
+| String
+| event
+|
+| The event to run when the conditions for this trigger are met
+|-
+| Minecraft Filter
+| filters
+|
+| The list of conditions for this trigger
+|-
+| String
+| target
+| self
+| The target of the event
+|}
+=== ''minecraft:''on_ignite ===
+
+;Description
+
+: Adds a trigger to call when this entity is set on fire.
+
+;Parameters
+
+: {| class="wikitable"
+! Type !! Name !! Default Value !! Description
+|-
+| String
+| event
+|
+| The event to run when the conditions for this trigger are met
+|-
+| Minecraft Filter
+| filters
+|
+| The list of conditions for this trigger
+|-
+| String
+| target
+| self
+| The target of the event
+|}
+=== ''minecraft:''on_start_landing ===
+
+;Description
+
+: Only usable by the Ender Dragon. Adds a trigger to call when this entity lands.
+
+;Parameters
+
+: {| class="wikitable"
+! Type !! Name !! Default Value !! Description
+|-
+| String
+| event
+|
+| The event to run when the conditions for this trigger are met
+|-
+| Minecraft Filter
+| filters
+|
+| The list of conditions for this trigger
+|-
+| String
+| target
+| self
+| The target of the event
+|}
+=== ''minecraft:''on_start_takeoff ===
+
+;Description
+
+: Only usable by the Ender Dragon. Adds a trigger to call when this entity starts flying.
+
+;Parameters
+
+: {| class="wikitable"
+! Type !! Name !! Default Value !! Description
+|-
+| String
+| event
+|
+| The event to run when the conditions for this trigger are met
+|-
+| Minecraft Filter
+| filters
+|
+| The list of conditions for this trigger
+|-
+| String
+| target
+| self
+| The target of the event
+|}
+=== ''minecraft:''on_target_acquired ===
+
+;Description
+
+: Adds a trigger to call when this entity finds a target.
+
+;Parameters
+
+: {| class="wikitable"
+! Type !! Name !! Default Value !! Description
+|-
+| String
+| event
+|
+| The event to run when the conditions for this trigger are met
+|-
+| Minecraft Filter
+| filters
+|
+| The list of conditions for this trigger
+|-
+| String
+| target
+| self
+| The target of the event
+|}
+=== ''minecraft:''on_target_escape ===
+
+;Description
+
+: Adds a trigger to call when this entity loses the target it currently has.
+
+;Parameters
+
+: {| class="wikitable"
+! Type !! Name !! Default Value !! Description
+|-
+| String
+| event
+|
+| The event to run when the conditions for this trigger are met
+|-
+| Minecraft Filter
+| filters
+|
+| The list of conditions for this trigger
+|-
+| String
+| target
+| self
+| The target of the event
+|}
